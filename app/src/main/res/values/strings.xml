@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ShelterSearcher</string>
+    <string name="title_activity_sucess">Sucess</string>
 </resources>
