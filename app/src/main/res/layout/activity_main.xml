@@ -14,7 +14,8 @@
         android:layout_marginStart="148dp"
         android:text="login"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="login"/>
 
     <Button
         android:id="@+id/button2"
