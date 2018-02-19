@@ -1,9 +1,11 @@
-package com.sdcg3.sheltersearcher;
+package com.sdcg3.sheltersearcher.controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.sdcg3.sheltersearcher.R;
 
 public class LandingPage extends AppCompatActivity {
 

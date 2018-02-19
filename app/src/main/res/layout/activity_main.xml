@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sdcg3.sheltersearcher.MainActivity">
+    tools:context="com.sdcg3.sheltersearcher.controllers.MainActivity">
 
     <Button
         android:id="@+id/button"
@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="148dp"
         android:layout_marginTop="48dp"
+        android:onClick="registration"
         android:text="Register"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
