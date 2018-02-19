@@ -1,4 +1,4 @@
-package com.sdcg3.sheltersearcher;
+package com.sdcg3.sheltersearcher.controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.sdcg3.sheltersearcher.R;
 
 public class Login extends AppCompatActivity {
 
