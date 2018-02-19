@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
 
 public class Login extends AppCompatActivity {
@@ -20,7 +21,7 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, LandingPage.class);
         EditText user = (EditText) findViewById(R.id.editUname);
         EditText pass = (EditText) findViewById(R.id.editPass);
-        if(user.getText().toString().equals("user") && pass.getText().toString().equals("pass")){
+        if(((MyApp)getApplication()).isCorrect(user.getText().toString(), pass.getText().toString())){
             startActivity(intent);
         }else{
             Toast toast = Toast.makeText(this, "incorrect username/password combo", Toast.LENGTH_SHORT);

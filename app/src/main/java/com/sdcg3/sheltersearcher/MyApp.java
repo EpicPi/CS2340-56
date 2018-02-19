@@ -11,6 +11,9 @@ import java.util.Map;
 public class MyApp extends Application {
     private Map<String, String> users =new HashMap<String, String>();
 
+    MyApp(){
+        users.put("user","pass");
+    }
     public void addUser(String user, String pass ) {
         users.put(user,pass);
     }
