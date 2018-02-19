@@ -9,7 +9,7 @@ import java.util.Map;
  */
 
 public class MyApp extends Application {
-    private Map<String, String> users =new HashMap<String, String>();
+    private Map<String, String> users = new HashMap<String, String>();
 
     MyApp(){
         users.put("user","pass");
@@ -19,6 +19,8 @@ public class MyApp extends Application {
     }
 
     public boolean isCorrect(String user, String pass) {
+        if(user == null || pass==null)
+            return false;
         return users.get(user).equals(pass);
     }
     //use this from anywhere by saying ((MyApplication)getApplication()).addUser();

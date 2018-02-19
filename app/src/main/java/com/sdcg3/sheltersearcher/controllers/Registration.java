@@ -24,7 +24,7 @@ public class Registration extends AppCompatActivity {
     }
     public void register(View view){
 
-        
+
     }
 
     public void cancel(View view){
