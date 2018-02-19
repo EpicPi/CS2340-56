@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Spinner;
 
@@ -17,31 +18,47 @@ import com.sdcg3.sheltersearcher.model.AccountType;
  */
 
 public class Registration extends AppCompatActivity {
+    private EditText firstName;
+    private EditText lastName;
+    private EditText user;
+    private EditText pass;
+    private Spinner accountTypeSpinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_registration);
 
-        ArrayAdapter<String> adapterAccountType = new ArrayAdapter(this, R.id.editAccountTypeSpinner, AccountType.values());
-        adapterAccountType.setDropDownViewResource(R.id.editAccountTypeSpinner);
-        AccountType.setAdapter(adapterAccountType);
+        accountTypeSpinner = (Spinner) findViewById(R.id.editAccountTypeSpinner);
+
+        ArrayAdapter<String> adapterAccountType = new ArrayAdapter(this, android.R.layout.simple_spinner_item, AccountType.values());
+        adapterAccountType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        accountTypeSpinner.setAdapter(adapterAccountType);
     }
+
     public void register(View view){
 
         Intent intent = new Intent(this, LandingPage.class);
-        EditText firstName = (EditText) findViewById(R.id.editFirstName);
-        EditText lastName = (EditText) findViewById(R.id.editLastName);
-        EditText user = (EditText) findViewById(R.id.editNewUsername);
-        EditText pass = (EditText) findViewById(R.id.editNewPassword);
-        Spinner accountTypeSpinner = (Spinner) findViewById(R.id.editAccountTypeSpinner);
 
-        if(user.getText().toString().equals("user") && pass.getText().toString().equals("pass")){
+        firstName = (EditText) findViewById(R.id.editFirstName);
+        lastName = (EditText) findViewById(R.id.editLastName);
+        user = (EditText) findViewById(R.id.editNewUsername);
+        pass = (EditText) findViewById(R.id.editNewPassword);
+
+        String firstNameStr = firstName.getText().toString();
+        String lastNameStr = lastName.getText().toString();
+        String userStr = user.getText().toString();
+        String passStr = pass.getText().toString();
+        String accountTypeStr = accountTypeSpinner.getSelectedItem().toString();
+
+        if (firstNameStr == null || lastNameStr == null || userStr == null || passStr == null || accountTypeStr == null) {
             startActivity(intent);
-        }else{
-            Toast toast = Toast.makeText(this, "incorrect username/password combo", Toast.LENGTH_SHORT);
+        } else {
+            Toast toast = Toast.makeText(this, "Please enter valid information", Toast.LENGTH_SHORT);
             toast.show();
         }
+
     }
     public void cancel(View view){
         Intent intent = new Intent(this, MainActivity.class);

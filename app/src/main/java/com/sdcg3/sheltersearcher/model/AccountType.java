@@ -6,7 +6,7 @@ package com.sdcg3.sheltersearcher.model;
 
 import java.io.Serializable;
 
-public class AccountType implements Serializable {
+public enum AccountType implements Serializable {
     US ("USER", "US"),
     AD ("ADMIN", "AD");
 
