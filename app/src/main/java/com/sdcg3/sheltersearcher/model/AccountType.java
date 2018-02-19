@@ -7,8 +7,8 @@ package com.sdcg3.sheltersearcher.model;
 import java.io.Serializable;
 
 public enum AccountType implements Serializable {
-    US ("USER", "US"),
-    AD ("ADMIN", "AD");
+    US ("US","USER"),
+    AD ("AD","ADMIN");
 
 
     /** the full string representation of the class standing name */

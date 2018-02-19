@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Spinner;
 
+import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
+import com.sdcg3.sheltersearcher.model.AccountType;
+
 /**
  * Created by aballari on 2/19/18.
  */
@@ -36,7 +38,6 @@ public class Registration extends AppCompatActivity {
 
     public void register(View view){
 
-        Intent intent = new Intent(this, LandingPage.class);
 
         firstName = (EditText) findViewById(R.id.editFirstName);
         lastName = (EditText) findViewById(R.id.editLastName);
@@ -50,10 +51,13 @@ public class Registration extends AppCompatActivity {
         String accountTypeStr = accountTypeSpinner.getSelectedItem().toString();
 
         if (firstNameStr == null || lastNameStr == null || userStr == null || passStr == null || accountTypeStr == null) {
-            startActivity(intent);
-        } else {
             Toast toast = Toast.makeText(this, "Please enter valid information", Toast.LENGTH_SHORT);
             toast.show();
+
+        } else {
+            ((MyApp)getApplication()).addUser(user.getText().toString(),pass.getText().toString());
+            Intent intent = new Intent(this, LandingPage.class);
+            startActivity(intent);
         }
 
     }

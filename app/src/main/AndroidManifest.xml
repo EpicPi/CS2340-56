@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".controllers.Login" />
+        <activity android:name=".controllers.Registration"/>
         <activity android:name=".controllers.LandingPage"></activity>
     </application>
 
