@@ -18,4 +18,5 @@ public class MyApp extends Application {
     public boolean isCorrect(String user, String pass) {
         return users.get(user).equals(pass);
     }
-} 
+    //use this from anywhere by saying ((MyApplication)getApplication()).addUser();
+}

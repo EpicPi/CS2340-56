@@ -23,9 +23,9 @@ public class Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        ArrayAdapter<String> adapterAccountType = new ArrayAdapter(this, R.id.editAccountTypeSpinner, AccountType.values());
-        adapterAccountType.setDropDownViewResource(R.id.editAccountTypeSpinner);
-        AccountType.setAdapter(adapterAccountType);
+//        ArrayAdapter<String> adapterAccountType = new ArrayAdapter(this, R.id.editAccountTypeSpinner, AccountType.values());
+//        adapterAccountType.setDropDownViewResource(R.id.editAccountTypeSpinner);
+//        AccountType.setAdapter(adapterAccountType);
     }
     public void register(View view){
 
@@ -43,6 +43,7 @@ public class Registration extends AppCompatActivity {
             toast.show();
         }
     }
+
     public void cancel(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
