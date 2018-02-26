@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Spinner;
 
-import com.sdcg3.sheltersearcher.MyApp;
+import com.sdcg3.sheltersearcher.model.Users;
 import com.sdcg3.sheltersearcher.R;
 import com.sdcg3.sheltersearcher.model.AccountType;
 
@@ -55,7 +55,7 @@ public class Registration extends AppCompatActivity {
             toast.show();
 
         } else {
-            ((MyApp)getApplication()).addUser(user.getText().toString(),pass.getText().toString());
+            ((Users)getApplication()).addUser(user.getText().toString(),pass.getText().toString());
             Intent intent = new Intent(this, LandingPage.class);
             startActivity(intent);
         }

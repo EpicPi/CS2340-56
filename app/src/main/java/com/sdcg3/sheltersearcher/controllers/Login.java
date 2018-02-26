@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.sdcg3.sheltersearcher.MyApp;
+import com.sdcg3.sheltersearcher.model.Users;
 import com.sdcg3.sheltersearcher.R;
 
 public class Login extends AppCompatActivity {
@@ -22,7 +22,7 @@ public class Login extends AppCompatActivity {
 
         EditText user = (EditText) findViewById(R.id.editUname);
         EditText pass = (EditText) findViewById(R.id.editPass);
-        if(((MyApp)getApplication()).isCorrect(user.getText().toString(), pass.getText().toString())){
+        if(((Users)getApplication()).isCorrect(user.getText().toString(), pass.getText().toString())){
             Intent intent = new Intent(this, LandingPage.class);
             startActivity(intent);
         }else{

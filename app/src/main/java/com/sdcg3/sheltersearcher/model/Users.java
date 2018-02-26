@@ -1,4 +1,4 @@
-package com.sdcg3.sheltersearcher;
+package com.sdcg3.sheltersearcher.model;
 
 import android.app.Application;
 import java.util.HashMap;
@@ -8,10 +8,10 @@ import java.util.Map;
  * Created by pi on 2/19/18.
  */
 
-public class MyApp extends Application {
+public class Users extends Application {
     private Map<String, String> users = new HashMap<>();
 
-    MyApp(){
+    Users(){
         super();
         users.put("user","pass");
     }
