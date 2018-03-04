@@ -1,30 +1,37 @@
 package com.sdcg3.sheltersearcher;
 
 import android.app.Application;
-import java.util.HashMap;
-import java.util.Map;
+
+import com.sdcg3.sheltersearcher.model.User;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by pi on 2/19/18.
  */
 
 public class MyApp extends Application {
-    private Map<String, String> users = new HashMap<>();
-
+    private List<User> users = new ArrayList<>();
+    private User current = null;
     MyApp(){
         super();
-        users.put("user","pass");
+        users.add(new User("user","pass"));
     }
     public void addUser(String user, String pass ) {
-        users.put(user,pass);
+        users.add(new User(user,pass));
     }
 
     public boolean isCorrect(String user, String pass) {
         if(user == null || pass==null)
             return false;
-        if(!users.containsKey(user))
-            return false;
-        return users.get(user).equals(pass);
+        List<User> curr= users.stream().filter((e) -> e.getUserName().equals(user)).collect(Collectors.toList());
+        if(curr.size()>0 && curr.get(0).checkPass(pass)){
+            current = curr.get(0);
+            return true;
+        }
+        return false;
     }
     //use this from anywhere by saying ((MyApplication)getApplication()).addUser();
 }

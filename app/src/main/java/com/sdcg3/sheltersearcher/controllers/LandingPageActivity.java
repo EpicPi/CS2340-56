@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.sdcg3.sheltersearcher.R;
 
-public class LandingPage extends AppCompatActivity {
+public class LandingPageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

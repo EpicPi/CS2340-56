@@ -17,7 +17,7 @@ import com.sdcg3.sheltersearcher.model.AccountType;
  * Created by aballari on 2/19/18.
  */
 
-public class Registration extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity {
     private EditText firstName;
     private EditText lastName;
     private EditText user;
@@ -56,7 +56,7 @@ public class Registration extends AppCompatActivity {
 
         } else {
             ((MyApp)getApplication()).addUser(user.getText().toString(),pass.getText().toString());
-            Intent intent = new Intent(this, LandingPage.class);
+            Intent intent = new Intent(this, LandingPageActivity.class);
             startActivity(intent);
         }
 
