@@ -20,6 +20,6 @@ public class Shelter {
         this.longi = longi;
         this.lati = lati;
         this.address = address;
-        this.phone = phone;c
+        this.phone = phone;
     }
 }

@@ -57,6 +57,7 @@ public class RegistrationActivity extends AppCompatActivity {
         } else {
             ((MyApp)getApplication()).addUser(user.getText().toString(),pass.getText().toString());
             Intent intent = new Intent(this, LandingPageActivity.class);
+
             startActivity(intent);
         }
 
