@@ -5,22 +5,22 @@ package com.sdcg3.sheltersearcher.model;
  */
 
 public class Shelter {
-    private String id;
-    private String name;
-    private String capacity;
-    private String restrictions;
-    private String gender;
-    private String longi;
-    private String lati;
-    private String address;
-    private String phone;
+    public String id;
+    public String name;
+    public String capacity;
+    public String restrictions;
+    public String notes;
+    public String longi;
+    public String lati;
+    public String address;
+    public String phone;
 
-    public Shelter(String id, String name, String capacity, String restrictions, String gender, String longi, String lati, String address, String phone){
+    public Shelter(String id, String name, String capacity, String restrictions, String longi, String lati, String address, String notes, String phone){
         this.id = id;
         this.name = name;
         this.capacity = capacity;
         this.restrictions = restrictions;
-        this.gender = gender;
+        this.notes = notes;
         this.longi = longi;
         this.lati = lati;
         this.address = address;

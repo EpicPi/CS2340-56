@@ -16,16 +16,18 @@ public class LandingPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
     }
+
     public void logOut(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
     public void showShelters(View view){
         ((MyApp)getApplication()).readCSV();
         Intent intent = new Intent(this, ListSheltersActivity.class);
         startActivity(intent);
-
     }
+
     public void searchShelters(View view){
         Intent intent = new Intent(this, SearchSheltersActivity.class);
         startActivity(intent);

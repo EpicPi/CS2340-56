@@ -44,10 +44,11 @@ public class MyApp extends Application {
             for (String[] arr : myEntries) {
                 shelters.add(new Shelter(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8]));
             }
-            Log.d("tag", shelters.toString());
+            shelters.remove(0);
         } catch (Exception e) {
             Log.d("stuff", e.toString());
         }
+
     }
 
     public void addUser(String user, String pass) {

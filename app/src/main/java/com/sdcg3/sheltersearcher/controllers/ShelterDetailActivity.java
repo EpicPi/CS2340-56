@@ -6,26 +6,27 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
+import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
+import com.sdcg3.sheltersearcher.model.Shelter;
 
 public class ShelterDetailActivity extends AppCompatActivity {
-
+    Shelter shelter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        shelter = ((MyApp)getApplication()).getSelected();
+        ((TextView)findViewById(R.id.name)).setText(shelter.getName());
+        ((TextView)findViewById(R.id.capacity)).setText(shelter.capacity);
+        ((TextView)findViewById(R.id.restrictions)).setText(shelter.restrictions);
+        ((TextView)findViewById(R.id.longitude)).setText(shelter.longi);
+        ((TextView)findViewById(R.id.latitude)).setText(shelter.lati);
+        ((TextView)findViewById(R.id.address)).setText(shelter.address);
+        ((TextView)findViewById(R.id.notes)).setText(shelter.notes);
+        ((TextView)findViewById(R.id.phone)).setText(shelter.phone);
     }
 
 }
