@@ -5,7 +5,7 @@ package com.sdcg3.sheltersearcher.Enums;
  */
 
 public enum AGE {
-    ANY(""), FAMILY_NEWBORN("families"), CHILDREN("children"),YOUNG_ADULTS("young adults"),ANYONE("anyone");
+    NA(""), FAMILY_NEWBORN("families"), CHILDREN("children"),YOUNG_ADULTS("young adults"),ANYONE("anyone");
 
     private final String value;
     AGE(String s){

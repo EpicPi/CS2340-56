@@ -5,7 +5,7 @@ package com.sdcg3.sheltersearcher.Enums;
  */
 
 public enum GENDER {
-    ANY(""),MALE("men"),FEMALE("women");
+    NA(""),MALE("men"),FEMALE("women");
 
     private final String value;
 

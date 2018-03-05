@@ -23,8 +23,8 @@ public class LoginActivity extends AppCompatActivity {
         EditText pass = findViewById(R.id.editPass);
         if(((MyApp)getApplication()).isCorrect(user.getText().toString(), pass.getText().toString())){
             Intent intent = new Intent(this, LandingPageActivity.class);
-
             startActivity(intent);
+            ((MyApp)getApplication()).readCSV();
         }else{
             Toast toast = Toast.makeText(this, "incorrect username/password combo", Toast.LENGTH_SHORT);
             toast.show();

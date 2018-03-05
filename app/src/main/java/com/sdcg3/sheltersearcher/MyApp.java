@@ -73,19 +73,25 @@ public class MyApp extends Application {
         return shelters;
     }
 
-    public void resetFiltered(){
+    public void resetFiltered() {
         filtered = null;
     }
-    public Shelter getSelected(){
+
+    public Shelter getSelected() {
         return selected;
     }
-    public void setSelected(Shelter selected){
+
+    public void setSelected(Shelter selected) {
         this.selected = selected;
     }
-    public void filterGender(){
 
-    }
-    public void filterAge(){
+    public void filter(String gender, String age, String name) {
+        final String other = gender.equals("men")? "women":"LOLOLOLOL"; //capital letters dont exist cause we .toLowerCase everything
 
+        filtered = shelters.stream().filter((el) -> {
+            String restrictions = el.restrictions.toLowerCase();
+
+            return restrictions.contains(gender) && !restrictions.contains(other) && restrictions.contains(age) && el.name.toLowerCase().contains(name);
+        }).collect(Collectors.toList());
     }
 }
