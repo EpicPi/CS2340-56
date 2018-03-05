@@ -1,9 +1,13 @@
 package com.sdcg3.sheltersearcher;
 
 import android.app.Application;
+import android.content.Intent;
+import android.support.v7.widget.SnapHelper;
 import android.util.Log;
 
 import com.opencsv.CSVReader;
+import com.sdcg3.sheltersearcher.controllers.ShelterDetailActivity;
+import com.sdcg3.sheltersearcher.model.Shelter;
 import com.sdcg3.sheltersearcher.model.User;
 
 import java.io.BufferedReader;
@@ -22,37 +26,55 @@ import java.util.stream.Collectors;
 
 public class MyApp extends Application {
     private List<User> users = new ArrayList<>();
+    private List<Shelter> shelters = new ArrayList<>();
     private User current = null;
-    MyApp(){
-        super();
-        users.add(new User("user","pass"));
+    private List<Shelter> filtered;
+    private Shelter selected;
 
+    MyApp() {
+        super();
+        users.add(new User("user", "pass"));
     }
-    public void readCSV(){
+
+    public void readCSV() {
         InputStream is = getResources().openRawResource(R.raw.csvfile);
-        try{
+        try {
             CSVReader reader = new CSVReader(new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8)));
             List<String[]> myEntries = reader.readAll();
-            Log.d("some", myEntries.size()+"");
-            Log.d("some", myEntries.get(0).length+"");
-        }
-        catch (Exception e){
+            for (String[] arr : myEntries) {
+                shelters.add(new Shelter(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8]));
+            }
+            Log.d("tag", shelters.toString());
+        } catch (Exception e) {
             Log.d("stuff", e.toString());
         }
     }
-    public void addUser(String user, String pass ) {
-        users.add(new User(user,pass));
+
+    public void addUser(String user, String pass) {
+        users.add(new User(user, pass));
     }
 
     public boolean isCorrect(String user, String pass) {
-        if(user == null || pass==null)
+        if (user == null || pass == null)
             return false;
-        List<User> curr= users.stream().filter((e) -> e.getUserName().equals(user)).collect(Collectors.toList());
-        if(curr.size()>0 && curr.get(0).checkPass(pass)){
+        List<User> curr = users.stream().filter((e) -> e.getUserName().equals(user)).collect(Collectors.toList());
+        if (curr.size() > 0 && curr.get(0).checkPass(pass)) {
             current = curr.get(0);
             return true;
         }
         return false;
     }
     //use this from anywhere by saying ((MyApplication)getApplication()).addUser();
+
+    public List<Shelter> getFiltered() {
+        if (filtered != null)
+            return filtered;
+        return shelters;
+    }
+    public Shelter getSelected(){
+        return selected;
+    }
+    public void setSelected(Shelter selected){
+        this.selected = selected;
+    }
 }

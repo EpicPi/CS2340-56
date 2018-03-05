@@ -21,7 +21,6 @@ public class LandingPageActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void showShelters(View view){
-        Log.d("why?","why");
         ((MyApp)getApplication()).readCSV();
         Intent intent = new Intent(this, ListSheltersActivity.class);
         startActivity(intent);

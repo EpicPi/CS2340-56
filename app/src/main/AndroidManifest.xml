@@ -21,7 +21,11 @@
         <activity android:name=".controllers.RegistrationActivity" />
         <activity android:name=".controllers.LandingPageActivity" />
         <activity android:name=".controllers.ListSheltersActivity" />
-        <activity android:name=".controllers.SearchSheltersActivity"></activity>
+        <activity android:name=".controllers.SearchSheltersActivity" />
+        <activity
+            android:name=".controllers.ShelterDetailActivity"
+            android:label="@string/title_activity_shelter_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
