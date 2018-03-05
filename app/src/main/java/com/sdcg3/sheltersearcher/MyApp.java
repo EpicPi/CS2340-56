@@ -72,10 +72,20 @@ public class MyApp extends Application {
             return filtered;
         return shelters;
     }
+
+    public void resetFiltered(){
+        filtered = null;
+    }
     public Shelter getSelected(){
         return selected;
     }
     public void setSelected(Shelter selected){
         this.selected = selected;
+    }
+    public void filterGender(){
+
+    }
+    public void filterAge(){
+
     }
 }

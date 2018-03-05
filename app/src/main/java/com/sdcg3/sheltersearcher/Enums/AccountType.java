@@ -1,4 +1,4 @@
-package com.sdcg3.sheltersearcher.model;
+package com.sdcg3.sheltersearcher.Enums;
 
 /**
  * Created by aballari on 2/19/18.

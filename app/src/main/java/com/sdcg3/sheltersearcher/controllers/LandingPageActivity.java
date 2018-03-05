@@ -15,6 +15,7 @@ public class LandingPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
+        ((MyApp)getApplication()).resetFiltered();
     }
 
     public void logOut(View view){

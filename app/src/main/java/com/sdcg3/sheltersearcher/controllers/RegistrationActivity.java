@@ -11,7 +11,7 @@ import android.widget.Spinner;
 
 import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
-import com.sdcg3.sheltersearcher.model.AccountType;
+import com.sdcg3.sheltersearcher.Enums.AccountType;
 
 /**
  * Created by aballari on 2/19/18.
