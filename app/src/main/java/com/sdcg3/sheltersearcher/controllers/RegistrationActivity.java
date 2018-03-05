@@ -30,19 +30,18 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-        accountTypeSpinner = (Spinner) findViewById(R.id.editAccountTypeSpinner);
+        accountTypeSpinner = findViewById(R.id.editAccountTypeSpinner);
         ArrayAdapter<String> adapterAccountType = new ArrayAdapter(this, android.R.layout.simple_spinner_item, AccountType.values());
         adapterAccountType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountTypeSpinner.setAdapter(adapterAccountType);
     }
 
-    public void register(View view){
+    public void register(View view) {
 
-
-        firstName = (EditText) findViewById(R.id.editFirstName);
-        lastName = (EditText) findViewById(R.id.editLastName);
-        user = (EditText) findViewById(R.id.editNewUsername);
-        pass = (EditText) findViewById(R.id.editNewPassword);
+        firstName = findViewById(R.id.editFirstName);
+        lastName = findViewById(R.id.editLastName);
+        user = findViewById(R.id.editNewUsername);
+        pass = findViewById(R.id.editNewPassword);
 
         String firstNameStr = firstName.getText().toString();
         String lastNameStr = lastName.getText().toString();
@@ -50,20 +49,18 @@ public class RegistrationActivity extends AppCompatActivity {
         String passStr = pass.getText().toString();
         String accountTypeStr = accountTypeSpinner.getSelectedItem().toString();
 
-        if (firstNameStr == null || lastNameStr == null || userStr == null || passStr == null || accountTypeStr == null) {
+        if (firstNameStr.equals("") || lastNameStr.equals("") || userStr.equals("") || passStr.equals("") || accountTypeStr == null) {
             Toast toast = Toast.makeText(this, "Please enter valid information", Toast.LENGTH_SHORT);
             toast.show();
-
         } else {
-            ((MyApp)getApplication()).addUser(user.getText().toString(),pass.getText().toString());
+            ((MyApp) getApplication()).addUser(user.getText().toString(), pass.getText().toString());
             Intent intent = new Intent(this, LandingPageActivity.class);
-
             startActivity(intent);
         }
 
     }
 
-    public void cancel(View view){
+    public void cancel(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

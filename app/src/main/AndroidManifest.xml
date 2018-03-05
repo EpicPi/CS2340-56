@@ -20,7 +20,8 @@
         <activity android:name=".controllers.LoginActivity" />
         <activity android:name=".controllers.RegistrationActivity" />
         <activity android:name=".controllers.LandingPageActivity" />
-        <activity android:name=".controllers.ListSheltersActivity"/>
+        <activity android:name=".controllers.ListSheltersActivity" />
+        <activity android:name=".controllers.SearchSheltersActivity"></activity>
     </application>
 
 </manifest>

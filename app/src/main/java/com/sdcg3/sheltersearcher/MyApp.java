@@ -1,9 +1,17 @@
 package com.sdcg3.sheltersearcher;
 
 import android.app.Application;
+import android.util.Log;
 
+import com.opencsv.CSVReader;
 import com.sdcg3.sheltersearcher.model.User;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +26,19 @@ public class MyApp extends Application {
     MyApp(){
         super();
         users.add(new User("user","pass"));
+
+    }
+    public void readCSV(){
+        InputStream is = getResources().openRawResource(R.raw.csvfile);
+        try{
+            CSVReader reader = new CSVReader(new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8)));
+            List<String[]> myEntries = reader.readAll();
+            Log.d("some", myEntries.size()+"");
+            Log.d("some", myEntries.get(0).length+"");
+        }
+        catch (Exception e){
+            Log.d("stuff", e.toString());
+        }
     }
     public void addUser(String user, String pass ) {
         users.add(new User(user,pass));
