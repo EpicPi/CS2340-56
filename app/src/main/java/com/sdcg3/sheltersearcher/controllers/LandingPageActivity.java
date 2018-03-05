@@ -15,7 +15,7 @@ public class LandingPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
-        ((MyApp)getApplication()).resetFiltered();
+
     }
 
     public void logOut(View view){
@@ -24,6 +24,7 @@ public class LandingPageActivity extends AppCompatActivity {
     }
 
     public void showShelters(View view){
+        ((MyApp)getApplication()).resetFiltered();
         Intent intent = new Intent(this, ListSheltersActivity.class);
         startActivity(intent);
     }
