@@ -37,6 +37,7 @@ public class MyApp extends Application {
     }
 
     public void readCSV() {
+        shelters.clear();
         InputStream is = getResources().openRawResource(R.raw.csvfile);
         try {
             CSVReader reader = new CSVReader(new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8)));
