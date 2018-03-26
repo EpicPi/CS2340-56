@@ -25,7 +25,8 @@
         <activity
             android:name=".controllers.ShelterDetailActivity"
             android:label="@string/title_activity_shelter_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".controllers.UserDetailActivity"/>
     </application>
 
 </manifest>

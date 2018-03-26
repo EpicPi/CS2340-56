@@ -16,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
     }
     public void login(View view){
 
@@ -24,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
         if(((MyApp)getApplication()).isCorrect(user.getText().toString(), pass.getText().toString())){
             Intent intent = new Intent(this, LandingPageActivity.class);
             startActivity(intent);
-            ((MyApp)getApplication()).readCSV();
         }else{
             Toast toast = Toast.makeText(this, "incorrect username/password combo", Toast.LENGTH_SHORT);
             toast.show();
