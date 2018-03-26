@@ -1,25 +1,16 @@
 package com.sdcg3.sheltersearcher;
 
 import android.app.Application;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.v7.widget.SnapHelper;
 import android.util.Log;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.CSVWriter;
-import com.sdcg3.sheltersearcher.controllers.ShelterDetailActivity;
 import com.sdcg3.sheltersearcher.model.Shelter;
 import com.sdcg3.sheltersearcher.model.User;
 
 import java.io.BufferedReader;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -28,27 +19,25 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * Created by pi on 3/4/18.
+ *
  */
 
 public class MyApp extends Application {
     private List<User> users = new ArrayList<>();
-    private List<Shelter> shelters = new ArrayList<>();
+    public List<Shelter> shelters = new ArrayList<>();
     private User current = null;
     private List<Shelter> filtered;
     private Shelter selected;
 
-    MyApp() {
-        super();
-    }
-
     public void readPpl(){
         try (
-                Reader reader = Files.newBufferedReader(Paths.get(getApplicationContext().getFilesDir()+"/ppl.csv"));
+                Reader reader = Files.newBufferedReader(Paths.get(getBaseContext().getFilesDir()+"/ppl.csv"));
                 CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build()
         ) {
             // Reading Records One by One in a String array
@@ -62,18 +51,17 @@ public class MyApp extends Application {
     }
     public void writePpl(){
         try (
-                Writer writer = Files.newBufferedWriter(Paths.get(getApplicationContext().getFilesDir()+"/ppl.csv"));
+                Writer writer = Files.newBufferedWriter(Paths.get(getBaseContext().getFilesDir()+"/ppl.csv"));
 
                 CSVWriter csvWriter = new CSVWriter(writer,
                         CSVWriter.DEFAULT_SEPARATOR,
-                        CSVWriter.NO_QUOTE_CHARACTER,
                         CSVWriter.DEFAULT_ESCAPE_CHARACTER,
                         CSVWriter.DEFAULT_LINE_END);
         ) {
             String[] headerRecord = {"Name", "password", "shelter","number"};
             csvWriter.writeNext(headerRecord);
             for (User usr : users) {
-                csvWriter.writeNext(new String[]{usr.name,usr.pass,usr.shelter,usr.number+""});
+                csvWriter.writeNext(usr.getWritable());
             }
         }catch (Exception e){
             Log.e("bye ppl",e.toString());
@@ -82,17 +70,17 @@ public class MyApp extends Application {
 
     public void writeShelters() {
         try (
-                Writer writer = Files.newBufferedWriter(Paths.get(getApplicationContext().getFilesDir()+"/shelter.csv"));
+                Writer writer = Files.newBufferedWriter(Paths.get(getBaseContext().getFilesDir()+"/shelter.csv"));
 
                 CSVWriter csvWriter = new CSVWriter(writer,
                         CSVWriter.DEFAULT_SEPARATOR,
-                        CSVWriter.NO_QUOTE_CHARACTER,
                         CSVWriter.DEFAULT_ESCAPE_CHARACTER,
-                        CSVWriter.DEFAULT_LINE_END);
+                        CSVWriter.DEFAULT_LINE_END)
         ) {
-            String[] headerRecord = {"Name", "password", "shelter","number"};
+            String[] headerRecord = {"id","name","capacity","restrictions","longitude","latitude","address","notes","phone","claimed"};
             csvWriter.writeNext(headerRecord);
             for (Shelter shelter : shelters) {
+
                 csvWriter.writeNext(shelter.getWritable());
             }
         }catch (Exception e){
@@ -102,12 +90,13 @@ public class MyApp extends Application {
 
     public void readShelters(){
         try (
-                Reader reader = Files.newBufferedReader(Paths.get(getApplicationContext().getFilesDir()+"/shelter.csv"));
+                Reader reader = Files.newBufferedReader(Paths.get(getBaseContext().getFilesDir()+"/shelter.csv"));
                 CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();
         ) {
             // Reading Records One by One in a String array
             List<String[]> records = csvReader.readAll();
             for (String[] arr : records) {
+//                Log.e("hi shelters",Arrays.toString(arr));
                 shelters.add(new Shelter(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], arr[9]));
             }
         }catch (Exception e){
@@ -118,14 +107,13 @@ public class MyApp extends Application {
     public void readCSV() {
         InputStream is = getResources().openRawResource(R.raw.csvfile);
         try {
-            CSVReader reader = new CSVReader(new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8)));
+            CSVReader reader = new CSVReaderBuilder(new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))).withSkipLines(1).build();
             List<String[]> myEntries = reader.readAll();
             for (String[] arr : myEntries) {
-                shelters.add(new Shelter(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], ""));
+                shelters.add(new Shelter(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], "0"));
             }
-            shelters.remove(0);
         } catch (Exception e) {
-            Log.d("stuff", e.toString());
+            Log.e("read csv", e.toString());
         }
 
     }
@@ -133,6 +121,11 @@ public class MyApp extends Application {
     public void addUser(String user, String pass) {
         users.add(new User(user, pass));
         writePpl();
+    }
+
+    public void claim(int amount, String shelter){
+        current.shelter = shelter;
+        current.number = amount;
     }
 
     public boolean isCorrect(String user, String pass) {
@@ -145,7 +138,6 @@ public class MyApp extends Application {
         }
         return false;
     }
-    //use this from anywhere by saying ((MyApplication)getApplication()).addUser();
 
     public List<Shelter> getFiltered() {
         if (filtered != null)

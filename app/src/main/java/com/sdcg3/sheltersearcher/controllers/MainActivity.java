@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
         ((MyApp)getApplication()).readPpl();
         ((MyApp)getApplication()).readShelters();
         if(((MyApp)getApplication()).getFiltered().size()==0){
-            ((MyApp)getApplication()).readCSV();
+//            ((MyApp)getApplication()).readCSV();
+//            ((MyApp)getApplication()).writeShelters();
         }
     }
     public void login(View view) {

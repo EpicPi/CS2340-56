@@ -8,7 +8,7 @@ public class User {
     public String name;
     public String pass;
     public String shelter;
-    public String number;
+    public int number;
     public User(String name, String pass){
         this.name = name;
         this.pass = pass;
@@ -17,9 +17,12 @@ public class User {
         this.name = name;
         this.pass = pass;
         this.shelter = shelter;
-        this.number = number;
+        this.number = Integer.parseInt(number);
     }
 
+    public String[] getWritable(){
+        return new String[]{name,pass,shelter,number+""};
+    }
     public boolean checkPass(String pass){
         return this.pass.equals(pass);
     }

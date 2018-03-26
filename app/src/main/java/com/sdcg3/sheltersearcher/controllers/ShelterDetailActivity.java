@@ -20,7 +20,7 @@ public class ShelterDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shelter_detail);
         shelter = ((MyApp)getApplication()).getSelected();
         ((TextView)findViewById(R.id.name)).setText(shelter.getName());
-        ((TextView)findViewById(R.id.capacity)).setText(shelter.capacity);
+        ((TextView)findViewById(R.id.capacity)).setText(shelter.capacity+"");
         ((TextView)findViewById(R.id.restrictions)).setText(shelter.restrictions);
         ((TextView)findViewById(R.id.longitude)).setText(shelter.longi);
         ((TextView)findViewById(R.id.latitude)).setText(shelter.lati);

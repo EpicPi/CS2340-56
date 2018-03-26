@@ -26,7 +26,6 @@ public class ListSheltersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_shelters);
         shelters = ((MyApp) getApplication()).getFiltered();
-        Log.e("idc", shelters.size()+"");
         listView = findViewById(R.id.list);
         adapter = new ShelterAdapter(shelters, getApplicationContext());
         listView.setAdapter(adapter);
