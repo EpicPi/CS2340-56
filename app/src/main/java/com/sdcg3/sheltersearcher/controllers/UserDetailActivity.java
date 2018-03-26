@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
@@ -30,6 +31,11 @@ public class UserDetailActivity extends AppCompatActivity {
     public void releaseBeds(View view){
         User user =((MyApp)getApplication()).current;
         Shelter shelter = ((MyApp)getApplication()).findByName(user.shelter);
+        if(shelter == null){
+            Toast toast = Toast.makeText(this, "No shelter space allocated", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
         int num = user.number;
         user.number = 0;
         user.shelter="";
@@ -37,5 +43,7 @@ public class UserDetailActivity extends AppCompatActivity {
         shelter.claimed -= num;
         ((TextView)findViewById(R.id.textView8)).setText(user.shelter);
         ((TextView)findViewById(R.id.textView9)).setText(user.number+"");
+        ((MyApp)getApplication()).writePpl();
+        ((MyApp)getApplication()).writeShelters();
     }
 }
