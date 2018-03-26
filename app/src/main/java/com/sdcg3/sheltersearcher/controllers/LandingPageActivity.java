@@ -32,4 +32,8 @@ public class LandingPageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SearchSheltersActivity.class);
         startActivity(intent);
     }
+    public void showDetail(View view){
+        Intent intent = new Intent(this, UserDetailActivity.class);
+        startActivity(intent);
+    }
 }

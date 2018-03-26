@@ -46,6 +46,8 @@ public class ShelterDetailActivity extends AppCompatActivity {
         }
 
         ((MyApp)getApplication()).claim(number,shelter);
+        ((TextView)findViewById(R.id.capacity)).setText(shelter.capacity+"");
+        amount.setText("");
 
     }
 }

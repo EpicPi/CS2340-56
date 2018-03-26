@@ -147,6 +147,15 @@ public class MyApp extends Application {
         return shelters;
     }
 
+    public Shelter findByName(String s){
+        for (Shelter shelter :
+                shelters) {
+            if (shelter.name.equals(s)) {
+                return shelter;
+            }
+        }
+        return null;
+    }
     public void resetFiltered() {
         filtered = null;
     }
