@@ -2,20 +2,31 @@ package com.sdcg3.sheltersearcher;
 
 import android.app.Application;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.SnapHelper;
 import android.util.Log;
 
 import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.CSVWriter;
 import com.sdcg3.sheltersearcher.controllers.ShelterDetailActivity;
 import com.sdcg3.sheltersearcher.model.Shelter;
 import com.sdcg3.sheltersearcher.model.User;
 
 import java.io.BufferedReader;
+
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.Writer;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,7 +44,75 @@ public class MyApp extends Application {
 
     MyApp() {
         super();
-        users.add(new User("user", "pass"));
+    }
+
+    public void readPpl(){
+        try (
+                Reader reader = Files.newBufferedReader(Paths.get(getApplicationContext().getFilesDir()+"/ppl.csv"));
+                CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build()
+        ) {
+            // Reading Records One by One in a String array
+            List<String[]> records = csvReader.readAll();
+            for (String[] record : records) {
+                users.add(new User(record[0],record[1],record[2],record[3]));
+            }
+        }catch (Exception e){
+            Log.e("hi ppl",e.toString());
+        }
+    }
+    public void writePpl(){
+        try (
+                Writer writer = Files.newBufferedWriter(Paths.get(getApplicationContext().getFilesDir()+"/ppl.csv"));
+
+                CSVWriter csvWriter = new CSVWriter(writer,
+                        CSVWriter.DEFAULT_SEPARATOR,
+                        CSVWriter.NO_QUOTE_CHARACTER,
+                        CSVWriter.DEFAULT_ESCAPE_CHARACTER,
+                        CSVWriter.DEFAULT_LINE_END);
+        ) {
+            String[] headerRecord = {"Name", "password", "shelter","number"};
+            csvWriter.writeNext(headerRecord);
+            for (User usr : users) {
+                csvWriter.writeNext(new String[]{usr.name,usr.pass,usr.shelter,usr.number+""});
+            }
+        }catch (Exception e){
+            Log.e("bye ppl",e.toString());
+        }
+    }
+
+    public void writeShelters() {
+        try (
+                Writer writer = Files.newBufferedWriter(Paths.get(getApplicationContext().getFilesDir()+"/shelter.csv"));
+
+                CSVWriter csvWriter = new CSVWriter(writer,
+                        CSVWriter.DEFAULT_SEPARATOR,
+                        CSVWriter.NO_QUOTE_CHARACTER,
+                        CSVWriter.DEFAULT_ESCAPE_CHARACTER,
+                        CSVWriter.DEFAULT_LINE_END);
+        ) {
+            String[] headerRecord = {"Name", "password", "shelter","number"};
+            csvWriter.writeNext(headerRecord);
+            for (Shelter shelter : shelters) {
+                csvWriter.writeNext(shelter.getWritable());
+            }
+        }catch (Exception e){
+            Log.e("bye shelters",e.toString());
+        }
+    }
+
+    public void readShelters(){
+        try (
+                Reader reader = Files.newBufferedReader(Paths.get(getApplicationContext().getFilesDir()+"/shelter.csv"));
+                CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();
+        ) {
+            // Reading Records One by One in a String array
+            List<String[]> records = csvReader.readAll();
+            for (String[] arr : records) {
+                shelters.add(new Shelter(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], arr[9]));
+            }
+        }catch (Exception e){
+            Log.e("hi shelters",e.toString());
+        }
     }
 
     public void readCSV() {
@@ -42,7 +121,7 @@ public class MyApp extends Application {
             CSVReader reader = new CSVReader(new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8)));
             List<String[]> myEntries = reader.readAll();
             for (String[] arr : myEntries) {
-                shelters.add(new Shelter(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8]));
+                shelters.add(new Shelter(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], ""));
             }
             shelters.remove(0);
         } catch (Exception e) {
@@ -53,12 +132,13 @@ public class MyApp extends Application {
 
     public void addUser(String user, String pass) {
         users.add(new User(user, pass));
+        writePpl();
     }
 
     public boolean isCorrect(String user, String pass) {
         if (user == null || pass == null)
             return false;
-        List<User> curr = users.stream().filter((e) -> e.getUserName().equals(user)).collect(Collectors.toList());
+        List<User> curr = users.stream().filter((e) -> e.name.equals(user)).collect(Collectors.toList());
         if (curr.size() > 0 && curr.get(0).checkPass(pass)) {
             current = curr.get(0);
             return true;
@@ -86,7 +166,7 @@ public class MyApp extends Application {
     }
 
     public void filter(String gender, String age, String name) {
-        final String other = gender.equals("men")? "women":"LOLOLOLOL"; //capital letters dont exist cause we .toLowerCase everything
+        final String other = gender.equals("men") ? "women" : "LOLOLOLOL"; //capital letters dont exist cause we .toLowerCase everything
 
         filtered = shelters.stream().filter((el) -> {
             String restrictions = el.restrictions.toLowerCase();
