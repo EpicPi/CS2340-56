@@ -15,13 +15,11 @@ import com.sdcg3.sheltersearcher.Enums.AccountType;
 
 /**
  * Created by aballari on 2/19/18.
+ *
  */
 
 public class RegistrationActivity extends AppCompatActivity {
-    private EditText firstName;
-    private EditText lastName;
-    private EditText user;
-    private EditText pass;
+
     private Spinner accountTypeSpinner;
 
 
@@ -38,10 +36,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
     public void register(View view) {
 
-        firstName = findViewById(R.id.editFirstName);
-        lastName = findViewById(R.id.editLastName);
-        user = findViewById(R.id.editNewUsername);
-        pass = findViewById(R.id.editNewPassword);
+        EditText firstName = findViewById(R.id.editFirstName);
+        EditText lastName = findViewById(R.id.editLastName);
+        EditText user = findViewById(R.id.editNewUsername);
+        EditText pass = findViewById(R.id.editNewPassword);
 
         String firstNameStr = firstName.getText().toString();
         String lastNameStr = lastName.getText().toString();
