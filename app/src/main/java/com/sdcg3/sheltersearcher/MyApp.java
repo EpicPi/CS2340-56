@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 public class MyApp extends Application {
     private List<User> users = new ArrayList<>();
     public List<Shelter> shelters = new ArrayList<>();
-    private User current = null;
+    public User current = null;
     private List<Shelter> filtered;
     private Shelter selected;
 
@@ -123,9 +123,11 @@ public class MyApp extends Application {
         writePpl();
     }
 
-    public void claim(int amount, String shelter){
-        current.shelter = shelter;
+    public void claim(int amount, Shelter shelter){
+        current.shelter = shelter.name;
         current.number = amount;
+        shelter.capacity -= amount;
+        shelter.claimed += amount;
     }
 
     public boolean isCorrect(String user, String pass) {

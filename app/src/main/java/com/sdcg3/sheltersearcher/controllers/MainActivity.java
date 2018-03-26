@@ -16,10 +16,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ((MyApp)getApplication()).readPpl();
         ((MyApp)getApplication()).readShelters();
-        if(((MyApp)getApplication()).getFiltered().size()==0){
+//        if(((MyApp)getApplication()).getFiltered().size()==0){
 //            ((MyApp)getApplication()).readCSV();
 //            ((MyApp)getApplication()).writeShelters();
-        }
+//            ((MyApp)getApplication()).writePpl();
+//        }
     }
     public void login(View view) {
         Intent intent = new Intent(this, LoginActivity.class);
