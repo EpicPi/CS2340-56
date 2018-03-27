@@ -2,11 +2,12 @@ package com.sdcg3.sheltersearcher.model;
 
 /**
  * Created by pi on 3/4/18.
+ *
  */
 
 public class User {
     public String name;
-    public String pass;
+    private String pass;
     public String shelter;
     public int number;
     public User(String name, String pass){

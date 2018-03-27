@@ -1,10 +1,10 @@
 package com.sdcg3.sheltersearcher.Enums;
 
+import java.io.Serializable;
 /**
  * Created by aballari on 2/19/18.
+ *
  */
-
-import java.io.Serializable;
 
 public enum AccountType implements Serializable {
     US ("US","USER"),
