@@ -19,7 +19,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -47,6 +46,7 @@ public class MyApp extends Application {
             }
         }catch (Exception e){
             Log.e("hi ppl",e.toString());
+            writePpl();
         }
     }
     public void writePpl(){
@@ -96,11 +96,12 @@ public class MyApp extends Application {
             // Reading Records One by One in a String array
             List<String[]> records = csvReader.readAll();
             for (String[] arr : records) {
-//                Log.e("hi shelters",Arrays.toString(arr));
                 shelters.add(new Shelter(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], arr[9]));
             }
         }catch (Exception e){
             Log.e("hi shelters",e.toString());
+            readCSV();
+            writeShelters();
         }
     }
 
