@@ -102,6 +102,7 @@ public class MyApp extends Application {
     }
 
     public void readCSV() {
+        shelters.clear();
         InputStream is = getResources().openRawResource(R.raw.csvfile);
         try {
             CSVReader reader = new CSVReaderBuilder(new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))).withSkipLines(1).build();
