@@ -117,7 +117,9 @@ public class MyApp extends Application {
     }
 
     public void addUser(String user, String pass) {
-        users.add(new User(user, pass));
+        current = new User(user, pass);
+        users.add(current);
+
         writePpl();
     }
 
