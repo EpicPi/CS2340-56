@@ -12,6 +12,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
 
 import java.util.List;
@@ -42,6 +43,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //reference to our GRASP Controller interface to the model
         final DataServiceFacade dataService = DataServiceFacade.getInstance();
+        dataService.setData(((MyApp) getApplication()).getFiltered());
 
 //        // Setting a click event handler for the map
 //        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {

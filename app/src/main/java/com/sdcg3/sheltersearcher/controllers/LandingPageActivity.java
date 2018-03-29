@@ -36,8 +36,5 @@ public class LandingPageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, UserDetailActivity.class);
         startActivity(intent);
     }
-    public void viewMap(View view){
-        Intent intent = new Intent(this, MapsActivity.class);
-        startActivity(intent);
-    }
+
 }

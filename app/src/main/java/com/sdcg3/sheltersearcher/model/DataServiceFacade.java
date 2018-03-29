@@ -10,13 +10,16 @@ public class DataServiceFacade {
     private static DataServiceFacade INSTANCE = new DataServiceFacade();
     public static DataServiceFacade getInstance() { return INSTANCE; }
 
-    private DataManager theData = new DataManager();
+    private DataManager theData;
 
     private DataElement theLastAddedElement;
 
 
     private DataServiceFacade() {
+    }
 
+    public void setData(List<Shelter> shelters) {
+        theData = new DataManager(shelters);
     }
 
     /**
