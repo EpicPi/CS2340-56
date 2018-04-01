@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sdcg3.sheltersearcher">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -21,8 +23,21 @@
         <activity android:name=".controllers.LandingPageActivity" />
         <activity android:name=".controllers.ListSheltersActivity" />
         <activity android:name=".controllers.SearchSheltersActivity" />
-        <activity android:name=".controllers.ShelterDetailActivity" />
-        <activity android:name=".controllers.UserDetailActivity"/>
+        <activity
+            android:name=".controllers.ShelterDetailActivity"
+            android:label="@string/title_activity_shelter_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".controllers.UserDetailActivity" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDfkqb3YD6ZREtsb3DUVPKQfK0FMAQrt3g" />
+
+        <activity
+            android:name=".controllers.MapsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/FullscreenTheme"/>
     </application>
 
 </manifest>

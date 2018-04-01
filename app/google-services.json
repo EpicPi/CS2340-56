@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "482923922826",
+    "firebase_url": "https://cs2340-b8284.firebaseio.com",
+    "project_id": "cs2340-b8284",
+    "storage_bucket": "cs2340-b8284.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482923922826:android:02c36084ba1f3fe6",
+        "android_client_info": {
+          "package_name": "com.sdcg3.sheltersearcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482923922826-3ena64t5fudftrmk7l0fm1hcfmlqsbv2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbVM8VH3r_Pt21vD9c82uLXCIt-59gWgE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

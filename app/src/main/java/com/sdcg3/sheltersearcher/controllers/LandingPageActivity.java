@@ -36,4 +36,5 @@ public class LandingPageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, UserDetailActivity.class);
         startActivity(intent);
     }
+
 }
