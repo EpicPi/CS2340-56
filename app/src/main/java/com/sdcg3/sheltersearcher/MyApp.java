@@ -2,15 +2,12 @@ package com.sdcg3.sheltersearcher;
 
 import android.app.Application;
 import android.util.Log;
-
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.CSVWriter;
 import com.sdcg3.sheltersearcher.model.Shelter;
 import com.sdcg3.sheltersearcher.model.User;
-
 import java.io.BufferedReader;
-
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -19,7 +16,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,18 +31,19 @@ public class MyApp extends Application {
     private List<Shelter> filtered;
     private Shelter selected;
 
+
     public void readPpl(){
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(getBaseContext().getFilesDir()+"/ppl.csv"));
                 CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build()
         ) {
-            // Reading Records One by One in a String array
             List<String[]> records = csvReader.readAll();
             for (String[] record : records) {
                 users.add(new User(record[0],record[1],record[2],record[3]));
             }
         }catch (Exception e){
             Log.e("hi ppl",e.toString());
+            writePpl();
         }
     }
     public void writePpl(){
@@ -93,14 +90,14 @@ public class MyApp extends Application {
                 Reader reader = Files.newBufferedReader(Paths.get(getBaseContext().getFilesDir()+"/shelter.csv"));
                 CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build();
         ) {
-            // Reading Records One by One in a String array
             List<String[]> records = csvReader.readAll();
             for (String[] arr : records) {
-//                Log.e("hi shelters",Arrays.toString(arr));
                 shelters.add(new Shelter(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8], arr[9]));
             }
         }catch (Exception e){
             Log.e("hi shelters",e.toString());
+            readCSV();
+            writeShelters();
         }
     }
 
@@ -120,7 +117,9 @@ public class MyApp extends Application {
     }
 
     public void addUser(String user, String pass) {
-        users.add(new User(user, pass));
+        current = new User(user, pass);
+        users.add(current);
+
         writePpl();
     }
 

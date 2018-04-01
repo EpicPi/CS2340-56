@@ -30,7 +30,15 @@ public class ShelterDetailActivity extends AppCompatActivity {
     }
     public void claim(View view){
         EditText amount = findViewById(R.id.editAmount);
-        int number = Integer.parseInt(amount.getText().toString());
+        int number;
+        try {
+            number = Integer.parseInt(amount.getText().toString());
+        }
+        catch (Exception e){
+            Toast toast = Toast.makeText(this, "Please enter a valid amount", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
         User usr = ((MyApp)getApplication()).current;
 
         if(usr.number!=0){
