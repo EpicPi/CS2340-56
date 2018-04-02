@@ -3,6 +3,7 @@ package com.sdcg3.sheltersearcher.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -25,6 +26,7 @@ public class SearchSheltersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_shelters);
 
         GenderSpinner = findViewById(R.id.gender);
+
         ArrayAdapter<String> genderAdapter = new ArrayAdapter(this,
                 android.R.layout.simple_spinner_item,
                 Stream.of(GENDER.values()).map(GENDER::name).toArray(String[]::new));
@@ -40,10 +42,12 @@ public class SearchSheltersActivity extends AppCompatActivity {
     }
 
     public void search(View view) {
-        ((MyApp) getApplication()).filter(
-                GENDER.valueOf(GenderSpinner.getSelectedItem().toString()).toString(),
-                AGE.valueOf(AgeSpinner.getSelectedItem().toString()).toString(),
-                ((EditText)findViewById(R.id.name)).getText().toString());
+        Object g = GenderSpinner.getSelectedItem();
+        GENDER gen = GENDER.valueOf(g.toString());
+        Object a = AgeSpinner.getSelectedItem();
+        AGE ag = AGE.valueOf(a.toString());
+        Editable et = ((EditText) findViewById(R.id.name)).getText();
+        ((MyApp) getApplication()).filter(gen.toString(), ag.toString(), et.toString());
         Intent intent = new Intent(this, ListSheltersActivity.class);
         startActivity(intent);
     }

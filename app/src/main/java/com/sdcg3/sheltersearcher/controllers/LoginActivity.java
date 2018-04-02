@@ -3,6 +3,7 @@ package com.sdcg3.sheltersearcher.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -24,8 +25,10 @@ public class LoginActivity extends AppCompatActivity {
     public void login(View view){
         EditText user = findViewById(R.id.editUname);
         EditText pass = findViewById(R.id.editPass);
-        if(((MyApp)getApplication()).isCorrect(user.getText().toString(),
-                pass.getText().toString())){
+        Editable a = user.getText();
+        Editable b = pass.getText();
+        if(((MyApp)getApplication()).isCorrect(a.toString(),
+                b.toString())){
             Intent intent = new Intent(this, LandingPageActivity.class);
             startActivity(intent);
         }else{

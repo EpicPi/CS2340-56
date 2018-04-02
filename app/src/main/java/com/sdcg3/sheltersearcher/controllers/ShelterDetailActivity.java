@@ -2,6 +2,7 @@ package com.sdcg3.sheltersearcher.controllers;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,7 +33,8 @@ public class ShelterDetailActivity extends AppCompatActivity {
         EditText amount = findViewById(R.id.editAmount);
         int number;
         try {
-            number = Integer.parseInt(amount.getText().toString());
+            Editable text = amount.getText();
+            number = Integer.parseInt(text.toString());
         }
         catch (Exception e){
             Toast toast = Toast.makeText(this, "Please enter a valid amount",

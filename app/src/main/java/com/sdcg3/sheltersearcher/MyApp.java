@@ -1,6 +1,7 @@
 package com.sdcg3.sheltersearcher;
 
 import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 
 import com.opencsv.CSVReader;
@@ -34,9 +35,10 @@ public class MyApp extends Application {
 
 
     public void readPpl() {
+        Context c = getBaseContext();
         try (
                 Reader reader = Files.newBufferedReader(
-                        Paths.get(getBaseContext().getFilesDir() + "/ppl.csv"));
+                        Paths.get(c.getFilesDir() + "/ppl.csv"));
                 CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build()
         ) {
             List<String[]> records = csvReader.readAll();
@@ -50,9 +52,10 @@ public class MyApp extends Application {
     }
 
     public void writePpl() {
+        Context c = getBaseContext();
         try (
                 Writer writer = Files.newBufferedWriter(
-                        Paths.get(getBaseContext().getFilesDir() + "/ppl.csv"));
+                        Paths.get(c.getFilesDir() + "/ppl.csv"));
 
                 CSVWriter csvWriter = new CSVWriter(writer,
                         CSVWriter.DEFAULT_SEPARATOR,
@@ -70,9 +73,10 @@ public class MyApp extends Application {
     }
 
     public void writeShelters() {
+        Context c = getBaseContext();
         try (
                 Writer writer = Files.newBufferedWriter(
-                        Paths.get(getBaseContext().getFilesDir() + "/shelter.csv"));
+                        Paths.get(c.getFilesDir() + "/shelter.csv"));
 
                 CSVWriter csvWriter = new CSVWriter(writer,
                         CSVWriter.DEFAULT_SEPARATOR,
@@ -92,9 +96,10 @@ public class MyApp extends Application {
     }
 
     public void readShelters() {
+        Context c = getBaseContext();
         try (
                 Reader reader = Files.newBufferedReader(
-                        Paths.get(getBaseContext().getFilesDir() + "/shelter.csv"));
+                        Paths.get(c.getFilesDir() + "/shelter.csv"));
                 CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build()
         ) {
             List<String[]> records = csvReader.readAll();

@@ -2,6 +2,7 @@ package com.sdcg3.sheltersearcher.controllers;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.TextView;
 
@@ -32,8 +33,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.mapView);
+        FragmentManager m = getSupportFragmentManager();
+        SupportMapFragment mapFragment = (SupportMapFragment) m.findFragmentById(R.id.mapView);
         mapFragment.getMapAsync(this);
     }
 
@@ -52,7 +53,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //iterate through the list and add a pin for each element in the model
         for (DataElement de : dataList) {
             LatLng loc = new LatLng(de.getLatitude(), de.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(loc).title(de.getName()).snippet(de.getDescription()));
+            MarkerOptions mo = new MarkerOptions();
+            mo.position(loc);
+            mo.title(de.getName());
+            mo.snippet(de.getDescription());
+            mMap.addMarker(mo);
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
 
