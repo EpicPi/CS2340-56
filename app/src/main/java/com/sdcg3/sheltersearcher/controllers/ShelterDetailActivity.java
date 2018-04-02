@@ -21,7 +21,8 @@ public class ShelterDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shelter_detail);
         shelter = ((MyApp)getApplication()).getSelected();
         ((TextView)findViewById(R.id.name)).setText(shelter.getName());
-        ((TextView)findViewById(R.id.capacity)).setText(shelter.capacity+"");
+        String x = shelter.capacity + "";
+        ((TextView)findViewById(R.id.capacity)).setText(x);
         ((TextView)findViewById(R.id.restrictions)).setText(shelter.restrictions);
         ((TextView)findViewById(R.id.longitude)).setText(shelter.longitude);
         ((TextView)findViewById(R.id.latitude)).setText(shelter.latitude);
@@ -59,7 +60,8 @@ public class ShelterDetailActivity extends AppCompatActivity {
         }
 
         ((MyApp)getApplication()).claim(number,shelter);
-        ((TextView)findViewById(R.id.capacity)).setText(shelter.capacity+"");
+        String y = shelter.capacity + "";
+        ((TextView)findViewById(R.id.capacity)).setText(y);
         amount.setText("");
         ((MyApp)getApplication()).writePpl();
         ((MyApp)getApplication()).writeShelters();
