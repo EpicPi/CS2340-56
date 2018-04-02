@@ -52,7 +52,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //iterate through the list and add a pin for each element in the model
         for (DataElement de : dataList) {
             LatLng loc = new LatLng(de.getLatitude(), de.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(loc).title(de.getName()).snippet(de.getDescription()));
+            mMap.addMarker(new MarkerOptions().position(
+                    loc).title(de.getName()).snippet(de.getDescription()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
 
