@@ -19,13 +19,13 @@ class Location {
     }
 
     /**
-     * Returns lattitude
+     * Returns latitude
      * @return  the latitude value
      */
     public double getLatitude() { return _latitude; }
 
     /**
-     * Returnd longitude
+     * Returns longitude
      * @return the longitude value
      */
     public double get_longitude() { return _longitude; }
