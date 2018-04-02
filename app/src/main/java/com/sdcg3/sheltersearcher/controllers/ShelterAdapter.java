@@ -48,7 +48,7 @@ class ShelterAdapter extends ArrayAdapter<Shelter> {
             viewHolder = (ViewHolder) convertView2.getTag();
         }
 
-        viewHolder.name.setText((shelter != null) ? shelter.name : null);
+        viewHolder.name.setText((shelter != null) ? shelter.getName() : null);
 
         // Return the completed view to render on screen
         return convertView2;

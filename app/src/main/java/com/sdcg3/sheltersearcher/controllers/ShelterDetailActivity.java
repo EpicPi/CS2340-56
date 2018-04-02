@@ -24,14 +24,14 @@ public class ShelterDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_shelter_detail);
         shelter = ((MyApp)getApplication()).getSelected();
         ((TextView)findViewById(R.id.name)).setText(shelter.getName());
-        String x = shelter.capacity + "";
+        String x = shelter.getCapacity() + "";
         ((TextView)findViewById(R.id.capacity)).setText(x);
-        ((TextView)findViewById(R.id.restrictions)).setText(shelter.restrictions);
-        ((TextView)findViewById(R.id.longitude)).setText(shelter.longitude);
-        ((TextView)findViewById(R.id.latitude)).setText(shelter.latitude);
-        ((TextView)findViewById(R.id.address)).setText(shelter.address);
-        ((TextView)findViewById(R.id.notes)).setText(shelter.notes);
-        ((TextView)findViewById(R.id.phone)).setText(shelter.phone);
+        ((TextView)findViewById(R.id.restrictions)).setText(shelter.getRestrictions());
+        ((TextView)findViewById(R.id.longitude)).setText(shelter.getLongitude());
+        ((TextView)findViewById(R.id.latitude)).setText(shelter.getLatitude());
+        ((TextView)findViewById(R.id.address)).setText(shelter.getAddress());
+        ((TextView)findViewById(R.id.notes)).setText(shelter.getNotes());
+        ((TextView)findViewById(R.id.phone)).setText(shelter.getPhone());
     }
 
     /**
@@ -60,7 +60,7 @@ public class ShelterDetailActivity extends AppCompatActivity {
             return;
         }
 
-        if((shelter.capacity - number) < 0){
+        if((shelter.getCapacity() - number) < 0){
             Toast toast = Toast.makeText(this,
                     "Shelter does not have enough capacity left", Toast.LENGTH_SHORT);
             toast.show();
@@ -68,7 +68,7 @@ public class ShelterDetailActivity extends AppCompatActivity {
         }
 
         ((MyApp)getApplication()).claim(number,shelter);
-        String y = shelter.capacity + "";
+        String y = shelter.getCapacity() + "";
         ((TextView)findViewById(R.id.capacity)).setText(y);
         amount.setText("");
         ((MyApp)getApplication()).writePpl();

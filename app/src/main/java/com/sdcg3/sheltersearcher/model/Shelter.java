@@ -7,14 +7,14 @@ package com.sdcg3.sheltersearcher.model;
 
 public class Shelter {
     private String id;
-    public String name;
-    public int capacity;
-    public String restrictions;
-    public String notes;
-    public String longitude;
-    public String latitude;
-    public String address;
-    public String phone;
+    private String name;
+    private int capacity;
+    private String restrictions;
+    private String notes;
+    private String longitude;
+    private String latitude;
+    private String address;
+    private String phone;
 
     /**
      *

@@ -20,11 +20,11 @@ class DataManager {
     }
     private void populateDataList() {
         for (Shelter shel: shelters) {
-            addReport(new DataElement(shel.name,
-                    "Phone Number: " + shel.phone + "\n" + "Address:  " +
-                            shel.address + "\n" + "Information:  " + shel.notes,
-                    new Location(Double.parseDouble(shel.latitude),
-                            Double.parseDouble(shel.longitude))));
+            addReport(new DataElement(shel.getName(),
+                    "Phone Number: " + shel.getPhone() + "\n" + "Address:  " +
+                            shel.getAddress() + "\n" + "Information:  " + shel.getNotes(),
+                    new Location(Double.parseDouble(shel.getLatitude()),
+                            Double.parseDouble(shel.getLongitude()))));
         }
     }
 
