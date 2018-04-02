@@ -1,5 +1,8 @@
 package com.sdcg3.sheltersearcher.model;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 /**
  * Acts as a data element
  */
@@ -49,5 +52,19 @@ public class DataElement {
      * @return longitude
      */
     public double getLongitude() { return _location.get_longitude(); }
+    /*
+                LatLng loc = new
+
+     */
+    public LatLng getlatlng(){
+        return new LatLng(getLatitude(), getLongitude());
+    }
+    public MarkerOptions getMO(){
+        MarkerOptions mo = new MarkerOptions();
+        mo.position(getlatlng());
+        mo.title(getName());
+        mo.snippet(getDescription());
+        return mo;
+    }
 
 }

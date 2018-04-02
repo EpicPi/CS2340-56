@@ -213,4 +213,28 @@ public class Shelter {
         return new String[]{id, name, capacity + "", restrictions, longitude, latitude,
                 address, notes, phone, claimed + ""};
     }
+
+    /**
+     *
+     * @return a desc
+     */
+    private String getDesc(){
+        return "Phone Number: " + phone + "\n" + "Address:  " +
+                address + "\n" + "Information:  " + notes;
+    }
+
+    /**
+     *
+     * @return a data element
+     */
+    public DataElement getEl(){
+        return new DataElement(name, getDesc(),
+                new Location(Double.parseDouble(latitude),
+                        Double.parseDouble(longitude)));
+    }
+
+    public void removeAMount(int amount){
+        capacity -= amount;
+        claimed += amount;
+    }
 }

@@ -172,8 +172,8 @@ public class MyApp extends Application {
     public void claim(int amount, Shelter shelter) {
         current.setShelter(shelter.getName());
         current.setNumber(amount);
-        shelter.setCapacity(shelter.getCapacity() - amount);
-        shelter.setClaimed(shelter.getClaimed() + amount);
+        shelter.removeAMount(amount);
+
     }
 
     /**
@@ -188,9 +188,11 @@ public class MyApp extends Application {
         }
         List<User> curr = users.stream().filter((e) -> e.getName().equals(user))
                 .collect(Collectors.toList());
-        User u = curr.get(0);
-        if (!curr.isEmpty() && u.checkPass(pass)) {
-            current = curr.get(0);
+
+        if (!curr.isEmpty()) {
+            User u = curr.get(0);
+            if(u.checkPass(pass))
+            current = u;
             return true;
         }
         return false;

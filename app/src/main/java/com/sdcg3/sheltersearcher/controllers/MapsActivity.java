@@ -53,13 +53,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //iterate through the list and add a pin for each element in the model
         for (DataElement de : dataList) {
-            LatLng loc = new LatLng(de.getLatitude(), de.getLongitude());
-            MarkerOptions mo = new MarkerOptions();
-            mo.position(loc);
-            mo.title(de.getName());
-            mo.snippet(de.getDescription());
-            googleMap.addMarker(mo);
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            googleMap.addMarker(de.getMO());
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(de.getlatlng()));
         }
 
         //Use a custom layout for the pin data
