@@ -14,9 +14,12 @@ import com.sdcg3.sheltersearcher.model.Shelter;
 
 import java.util.List;
 
+/**
+ * Lists the filtered shelters
+ */
 public class ListSheltersActivity extends AppCompatActivity {
 
-    ListView listView;
+    private ListView listView;
     private List<Shelter> shelters;
 
     @Override
@@ -28,7 +31,8 @@ public class ListSheltersActivity extends AppCompatActivity {
         ShelterAdapter adapter = new ShelterAdapter(shelters, getApplicationContext());
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener((AdapterView<?> parent, View view, int position, long id) -> {
+        listView.setOnItemClickListener((AdapterView<?> parent, View view,
+                                         int position, long id) -> {
             Shelter shelter = shelters.get(position);
             ((MyApp) getApplication()).setSelected(shelter);
             Intent intent = new Intent(getApplicationContext(), ShelterDetailActivity.class);
@@ -36,13 +40,10 @@ public class ListSheltersActivity extends AppCompatActivity {
         });
 
         Button mapButton = findViewById(R.id.mapButton);
-        mapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        mapButton.setOnClickListener(view -> {
 
-                Intent intent = new Intent(getBaseContext(), MapsActivity.class);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+            startActivity(intent);
         });
     }
 

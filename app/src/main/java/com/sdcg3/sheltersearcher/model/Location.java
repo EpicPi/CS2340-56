@@ -1,31 +1,31 @@
 package com.sdcg3.sheltersearcher.model;
 
 /**
- * Created by aballari on 3/27/18.
+ * Models a location
  */
 
-public class Location {
-    private double _latitude;
-    private double _longitude;
+class Location {
+    private final double _latitude;
+    private final double _longitude;
 
     /**
      * Creates a new Location
-     * @param lat  the latitude
-     * @param longit  the longitude
+     * @param latitude  the latitude
+     * @param longitude  the longitude
      */
-    public Location(double lat, double longit) {
-        _latitude = lat;
-        _longitude = longit;
+    public Location(double latitude, double longitude) {
+        _latitude = latitude;
+        _longitude = longitude;
     }
 
     /**
-     *
+     * Returns lattitude
      * @return  the latitude value
      */
     public double getLatitude() { return _latitude; }
 
     /**
-     *
+     * Returnd longitude
      * @return the longitude value
      */
     public double get_longitude() { return _longitude; }

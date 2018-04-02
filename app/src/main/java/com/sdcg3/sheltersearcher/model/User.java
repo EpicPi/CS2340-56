@@ -1,13 +1,15 @@
 package com.sdcg3.sheltersearcher.model;
 
+import java.util.Objects;
+
 /**
  * Created by pi on 3/4/18.
  *
  */
 
 public class User {
-    public String name;
-    private String pass;
+    public final String name;
+    private final String pass;
     public String shelter;
     public int number;
     public User(String name, String pass){
@@ -20,7 +22,7 @@ public class User {
         this.name = name;
         this.pass = pass;
         this.shelter = shelter;
-        if(number ==""||number == null)
+        if(Objects.equals(number, "") || (number == null))
             this.number = 0;
         else
             this.number = Integer.parseInt(number);

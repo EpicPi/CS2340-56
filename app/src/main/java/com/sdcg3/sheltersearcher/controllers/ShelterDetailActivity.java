@@ -13,7 +13,7 @@ import com.sdcg3.sheltersearcher.model.Shelter;
 import com.sdcg3.sheltersearcher.model.User;
 
 public class ShelterDetailActivity extends AppCompatActivity {
-    Shelter shelter;
+    private Shelter shelter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,8 +22,8 @@ public class ShelterDetailActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.name)).setText(shelter.getName());
         ((TextView)findViewById(R.id.capacity)).setText(shelter.capacity+"");
         ((TextView)findViewById(R.id.restrictions)).setText(shelter.restrictions);
-        ((TextView)findViewById(R.id.longitude)).setText(shelter.longi);
-        ((TextView)findViewById(R.id.latitude)).setText(shelter.lati);
+        ((TextView)findViewById(R.id.longitude)).setText(shelter.longitude);
+        ((TextView)findViewById(R.id.latitude)).setText(shelter.latitude);
         ((TextView)findViewById(R.id.address)).setText(shelter.address);
         ((TextView)findViewById(R.id.notes)).setText(shelter.notes);
         ((TextView)findViewById(R.id.phone)).setText(shelter.phone);
@@ -35,20 +35,23 @@ public class ShelterDetailActivity extends AppCompatActivity {
             number = Integer.parseInt(amount.getText().toString());
         }
         catch (Exception e){
-            Toast toast = Toast.makeText(this, "Please enter a valid amount", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Please enter a valid amount",
+                    Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
         User usr = ((MyApp)getApplication()).current;
 
         if(usr.number!=0){
-            Toast toast = Toast.makeText(this, "Must release claimed beds first", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Must release claimed beds first",
+                    Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
 
-        if(shelter.capacity-number<0){
-            Toast toast = Toast.makeText(this, "Shelter does not have enough capacity left", Toast.LENGTH_SHORT);
+        if((shelter.capacity - number) < 0){
+            Toast toast = Toast.makeText(this,
+                    "Shelter does not have enough capacity left", Toast.LENGTH_SHORT);
             toast.show();
             return;
         }

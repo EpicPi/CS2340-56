@@ -1,6 +1,7 @@
 package com.sdcg3.sheltersearcher.controllers;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import java.util.List;
  *
  */
 
-public class ShelterAdapter extends ArrayAdapter<Shelter> {
+class ShelterAdapter extends ArrayAdapter<Shelter> {
 //    private List<Shelter> shelters;
 //    private Context mContext;
 
@@ -27,7 +28,9 @@ public class ShelterAdapter extends ArrayAdapter<Shelter> {
     public ShelterAdapter(List<Shelter> data, Context context) {
         super(context, R.layout.row_item, data);
     }
-    public View getView(int position, View convertView, ViewGroup parent) {
+    @NonNull
+    @Override
+    public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         // Get the data item for this position
         Shelter shelter = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
@@ -43,7 +46,7 @@ public class ShelterAdapter extends ArrayAdapter<Shelter> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.name.setText(shelter.name);//can this be moved to first if statement?
+        viewHolder.name.setText((shelter != null) ? shelter.name : null);
 
         // Return the completed view to render on screen
         return convertView;

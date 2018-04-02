@@ -1,15 +1,13 @@
 package com.sdcg3.sheltersearcher.model;
 
 /**
- * Created by aballari on 3/27/18.
+ * Acts as a data element
  */
 
 public class DataElement {
-    private static int Next_ID = 1000;
-    private int _id;
-    private String _name;
-    private String _description;
-    private Location _location;
+    private final String _name;
+    private final String _description;
+    private final Location _location;
 
     /**
      * Create new element
@@ -21,7 +19,6 @@ public class DataElement {
         _name = name;
         _description = desc;
         _location = location;
-        _id = Next_ID++;
     }
 
     @Override

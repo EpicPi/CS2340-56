@@ -10,6 +10,9 @@ import android.widget.Toast;
 import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
 
+/**
+ * Displays the login username and password fields
+ */
 public class LoginActivity extends AppCompatActivity {
 
     @Override
@@ -19,14 +22,15 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     public void login(View view){
-
         EditText user = findViewById(R.id.editUname);
         EditText pass = findViewById(R.id.editPass);
-        if(((MyApp)getApplication()).isCorrect(user.getText().toString(), pass.getText().toString())){
+        if(((MyApp)getApplication()).isCorrect(user.getText().toString(),
+                pass.getText().toString())){
             Intent intent = new Intent(this, LandingPageActivity.class);
             startActivity(intent);
         }else{
-            Toast toast = Toast.makeText(this, "incorrect username/password combo", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "incorrect username/password combo",
+                    Toast.LENGTH_SHORT);
             toast.show();
         }
     }

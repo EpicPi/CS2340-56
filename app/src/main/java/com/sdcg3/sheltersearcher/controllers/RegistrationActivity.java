@@ -14,8 +14,7 @@ import com.sdcg3.sheltersearcher.R;
 import com.sdcg3.sheltersearcher.Enums.AccountType;
 
 /**
- * Created by aballari on 2/19/18.
- *
+ * Allows people to register for an account
  */
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -29,7 +28,8 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
 
         accountTypeSpinner = findViewById(R.id.editAccountTypeSpinner);
-        ArrayAdapter<String> adapterAccountType = new ArrayAdapter(this, android.R.layout.simple_spinner_item, AccountType.values());
+        ArrayAdapter<String> adapterAccountType = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item, AccountType.values());
         adapterAccountType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         accountTypeSpinner.setAdapter(adapterAccountType);
     }
@@ -47,11 +47,14 @@ public class RegistrationActivity extends AppCompatActivity {
         String passStr = pass.getText().toString();
         String accountTypeStr = accountTypeSpinner.getSelectedItem().toString();
 
-        if (firstNameStr.equals("") || lastNameStr.equals("") || userStr.equals("") || passStr.equals("") || accountTypeStr == null) {
-            Toast toast = Toast.makeText(this, "Please enter valid information", Toast.LENGTH_SHORT);
+        if (firstNameStr.equals("") || lastNameStr.equals("") || userStr.equals("")
+                || passStr.equals("") || (accountTypeStr == null)) {
+            Toast toast = Toast.makeText(this, "Please enter valid information",
+                    Toast.LENGTH_SHORT);
             toast.show();
         } else {
-            ((MyApp) getApplication()).addUser(user.getText().toString(), pass.getText().toString());
+            ((MyApp) getApplication()).addUser(user.getText().toString(), pass.getText()
+                    .toString());
             Intent intent = new Intent(this, LandingPageActivity.class);
             startActivity(intent);
         }

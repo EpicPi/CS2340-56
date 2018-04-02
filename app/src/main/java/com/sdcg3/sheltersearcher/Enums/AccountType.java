@@ -2,8 +2,7 @@ package com.sdcg3.sheltersearcher.Enums;
 
 import java.io.Serializable;
 /**
- * Created by aballari on 2/19/18.
- *
+ * Represents an account type
  */
 
 public enum AccountType implements Serializable {
@@ -20,29 +19,28 @@ public enum AccountType implements Serializable {
     /**
      * Constructor for the enumeration
      *
-     * @param pname   full name of the account type
-     * @param pcode   letter code / abbreviation for the account type
+     * @param name   full name of the account type
+     * @param code   letter code / abbreviation for the account type
      */
-    AccountType(String pname, String pcode) {
-        name = pname;
-        code = pcode;
+    AccountType(String name, String code) {
+        this. name = name;
+        this. code = code;
     }
-
     /**
-     *
+     * Returns full account type name
      * @return   the full account type name
      */
     public String getName() { return name; }
 
 
     /**
-     *
+     * Returns abbrev
      * @return the abbreviation for the account type
      */
     public String getCode() { return code; }
 
     /**
-     *
+     * Returns display string rep
      * @return the display string representation of the account type
      */
     public String toString() { return code; }

@@ -3,11 +3,11 @@ package com.sdcg3.sheltersearcher.model;
 import java.util.List;
 
 /**
- * Created by aballari on 3/27/18.
+ * Provides a data service facade
  */
 
-public class DataServiceFacade {
-    private static DataServiceFacade INSTANCE = new DataServiceFacade();
+public final class DataServiceFacade {
+    private static final DataServiceFacade INSTANCE = new DataServiceFacade();
     public static DataServiceFacade getInstance() { return INSTANCE; }
 
     private DataManager theData;

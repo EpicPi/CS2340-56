@@ -25,12 +25,16 @@ public class SearchSheltersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_shelters);
 
         GenderSpinner = findViewById(R.id.gender);
-        ArrayAdapter<String> genderAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, Stream.of(GENDER.values()).map(GENDER::name).toArray(String[]::new));
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item,
+                Stream.of(GENDER.values()).map(GENDER::name).toArray(String[]::new));
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         GenderSpinner.setAdapter(genderAdapter);
 
         AgeSpinner = findViewById(R.id.age);
-        ArrayAdapter<String> ageAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, Stream.of(AGE.values()).map(AGE::name).toArray(String[]::new));
+        ArrayAdapter<String> ageAdapter = new ArrayAdapter(this,
+                android.R.layout.simple_spinner_item,
+                Stream.of(AGE.values()).map(AGE::name).toArray(String[]::new));
         ageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         AgeSpinner.setAdapter(ageAdapter);
     }
