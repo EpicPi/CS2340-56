@@ -8,6 +8,11 @@ import java.util.List;
 
 public final class DataServiceFacade {
     private static final DataServiceFacade INSTANCE = new DataServiceFacade();
+
+    /**
+     *
+     * @return instance
+     */
     public static DataServiceFacade getInstance() { return INSTANCE; }
 
     private DataManager theData;
@@ -18,6 +23,10 @@ public final class DataServiceFacade {
     private DataServiceFacade() {
     }
 
+    /**
+     *
+     * @param shelters shelters
+     */
     public void setData(List<Shelter> shelters) {
         theData = new DataManager(shelters);
     }

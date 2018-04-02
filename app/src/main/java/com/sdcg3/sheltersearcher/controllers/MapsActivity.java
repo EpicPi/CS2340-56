@@ -39,26 +39,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        //save the map instance returned from Google
-        GoogleMap mMap = googleMap;
 
         //reference to our GRASP Controller interface to the model
         final DataServiceFacade dataService = DataServiceFacade.getInstance();
-        dataService.setData(((MyApp) getApplication()).getFiltered());
+        List filteredAppResults = ((MyApp) getApplication()).getFiltered();
+        dataService.setData(filteredAppResults);
 
         //get the data to display
-        List<DataElement> dataList = dataService.getData();
+        List<DataElement> dataList;
+        dataList = dataService.getData();
 
         //iterate through the list and add a pin for each element in the model
         for (DataElement de : dataList) {
             LatLng loc = new LatLng(de.getLatitude(), de.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(
+            googleMap.addMarker(new MarkerOptions().position(
                     loc).title(de.getName()).snippet(de.getDescription()));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
 
         //Use a custom layout for the pin data
-        mMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());
+        googleMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());
     }
 
     /**

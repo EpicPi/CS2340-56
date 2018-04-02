@@ -12,6 +12,9 @@ import com.sdcg3.sheltersearcher.R;
 import com.sdcg3.sheltersearcher.model.Shelter;
 import com.sdcg3.sheltersearcher.model.User;
 
+/**
+ * Shelter Detail Activity
+ */
 public class ShelterDetailActivity extends AppCompatActivity {
     private Shelter shelter;
     @Override
@@ -29,6 +32,11 @@ public class ShelterDetailActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.notes)).setText(shelter.notes);
         ((TextView)findViewById(R.id.phone)).setText(shelter.phone);
     }
+
+    /**
+     * claim
+     * @param view view
+     */
     public void claim(View view){
         EditText amount = findViewById(R.id.editAmount);
         int number;
