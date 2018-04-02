@@ -2,6 +2,7 @@ package com.sdcg3.sheltersearcher;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Resources;
 import android.util.Log;
 
 import com.opencsv.CSVReader;
@@ -116,7 +117,8 @@ public class MyApp extends Application {
 
     private void readCSV() {
         shelters.clear();
-        InputStream is = getResources().openRawResource(R.raw.csvfile);
+        Resources r = getResources();
+        InputStream is = r.openRawResource(R.raw.csvfile);
         try {
             CSVReader reader = new CSVReaderBuilder(new BufferedReader(
                     new InputStreamReader(is, StandardCharsets.UTF_8))).withSkipLines(1).build();
@@ -150,7 +152,8 @@ public class MyApp extends Application {
             return false;
         List<User> curr = users.stream().filter((e) -> e.name.equals(user))
                 .collect(Collectors.toList());
-        if (!curr.isEmpty() && curr.get(0).checkPass(pass)) {
+        User u = curr.get(0);
+        if (!curr.isEmpty() && u.checkPass(pass)) {
             current = curr.get(0);
             return true;
         }

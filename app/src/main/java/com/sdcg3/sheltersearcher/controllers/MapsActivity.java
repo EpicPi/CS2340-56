@@ -3,6 +3,7 @@ package com.sdcg3.sheltersearcher.controllers;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
@@ -77,7 +78,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
          */
         CustomInfoWindowAdapter() {
             // hook up the custom layout view in res/custom_map_pin_layout.xml
-            myContentsView = getLayoutInflater().inflate(R.layout.custom_map_pin_layout, null);
+            LayoutInflater inf = getLayoutInflater();
+            myContentsView = inf.inflate(R.layout.custom_map_pin_layout, null);
         }
 
         @Override

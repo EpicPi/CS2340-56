@@ -3,6 +3,7 @@ package com.sdcg3.sheltersearcher.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -41,11 +42,16 @@ public class RegistrationActivity extends AppCompatActivity {
         EditText user = findViewById(R.id.editNewUsername);
         EditText pass = findViewById(R.id.editNewPassword);
 
-        String firstNameStr = firstName.getText().toString();
-        String lastNameStr = lastName.getText().toString();
-        String userStr = user.getText().toString();
-        String passStr = pass.getText().toString();
-        String accountTypeStr = accountTypeSpinner.getSelectedItem().toString();
+        Editable a = firstName.getText();
+        String firstNameStr = a.toString();
+        Editable b = lastName.getText();
+        String lastNameStr = b.toString();
+        Editable c = user.getText();
+        String userStr = c.toString();
+        Editable d = pass.getText();
+        String passStr = d.toString();
+        Object o = accountTypeSpinner.getSelectedItem();
+        String accountTypeStr = o.toString();
 
         if (firstNameStr.equals("") || lastNameStr.equals("") || userStr.equals("")
                 || passStr.equals("") || (accountTypeStr == null)) {
@@ -53,12 +59,12 @@ public class RegistrationActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT);
             toast.show();
         } else {
-            ((MyApp) getApplication()).addUser(user.getText().toString(), pass.getText()
-                    .toString());
+            Editable f = user.getText();
+            Editable g = pass.getText();
+            ((MyApp) getApplication()).addUser(f.toString(), g.toString());
             Intent intent = new Intent(this, LandingPageActivity.class);
             startActivity(intent);
         }
-
     }
 
     public void cancel(View view) {
