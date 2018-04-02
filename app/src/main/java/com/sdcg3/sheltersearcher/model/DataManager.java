@@ -20,7 +20,8 @@ class DataManager {
             addReport(new DataElement(shel.name,
                     "Phone Number: " + shel.phone + "\n" + "Address:  " +
                             shel.address + "\n" + "Information:  " + shel.notes,
-                    new Location(Double.parseDouble(shel.latitude), Double.parseDouble(shel.longitude))));
+                    new Location(Double.parseDouble(shel.latitude),
+                            Double.parseDouble(shel.longitude))));
         }
     }
 
