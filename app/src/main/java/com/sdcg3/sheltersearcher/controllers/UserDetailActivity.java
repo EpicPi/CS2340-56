@@ -23,9 +23,11 @@ public class UserDetailActivity extends AppCompatActivity {
             user.shelter = "a";
         }
         Log.e("creating user detail name",user.shelter);
-        Log.e("creating user detail num",user.number+"");
+        String y = user.number + "";
+        Log.e("creating user detail num",y);
         ((TextView)findViewById(R.id.textView8)).setText(user.shelter);
-        ((TextView)findViewById(R.id.textView9)).setText(user.number+"");
+        String x = user.number + "";
+        ((TextView)findViewById(R.id.textView9)).setText(x);
     }
 
     public void releaseBeds(View view){
@@ -42,7 +44,8 @@ public class UserDetailActivity extends AppCompatActivity {
         shelter.capacity += num;
         shelter.claimed -= num;
         ((TextView)findViewById(R.id.textView8)).setText(user.shelter);
-        ((TextView)findViewById(R.id.textView9)).setText(user.number+"");
+        String z = user.number + "";
+        ((TextView)findViewById(R.id.textView9)).setText(z);
         ((MyApp)getApplication()).writePpl();
         ((MyApp)getApplication()).writeShelters();
     }
