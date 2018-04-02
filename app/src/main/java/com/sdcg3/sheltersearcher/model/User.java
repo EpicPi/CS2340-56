@@ -22,10 +22,11 @@ public class User {
         this.name = name;
         this.pass = pass;
         this.shelter = shelter;
-        if(Objects.equals(number, "") || (number == null))
+        if(Objects.equals(number, "") || (number == null)) {
             this.number = 0;
-        else
+        } else {
             this.number = Integer.parseInt(number);
+        }
     }
 
     public String[] getWritable(){

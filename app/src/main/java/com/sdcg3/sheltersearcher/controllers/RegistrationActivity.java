@@ -53,8 +53,8 @@ public class RegistrationActivity extends AppCompatActivity {
         Object o = accountTypeSpinner.getSelectedItem();
         String accountTypeStr = o.toString();
 
-        if (firstNameStr.equals("") || lastNameStr.equals("") || userStr.equals("")
-                || passStr.equals("") || (accountTypeStr == null)) {
+        if ("".equals(firstNameStr) || "".equals(lastNameStr) || "".equals(userStr)
+                || "".equals(passStr) || (accountTypeStr == null)) {
             Toast toast = Toast.makeText(this, "Please enter valid information",
                     Toast.LENGTH_SHORT);
             toast.show();
