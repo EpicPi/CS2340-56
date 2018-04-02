@@ -42,9 +42,9 @@ public class ShelterDetailActivity extends AppCompatActivity {
             toast.show();
             return;
         }
-        User usr = ((MyApp)getApplication()).current;
+        User usr = ((MyApp)getApplication()).getCurrent();
 
-        if(usr.number!=0){
+        if(usr.getNumber()!=0){
             Toast toast = Toast.makeText(this, "Must release claimed beds first",
                     Toast.LENGTH_SHORT);
             toast.show();

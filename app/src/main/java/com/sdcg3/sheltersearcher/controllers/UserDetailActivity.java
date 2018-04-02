@@ -17,32 +17,32 @@ public class UserDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        User user =((MyApp)getApplication()).current;
+        User user =((MyApp)getApplication()).getCurrent();
         setContentView(R.layout.activity_user_detail);
-        if(user.shelter==null){
-            user.shelter = "a";
+        if(user.getShelter()==null){
+            user.setShelter("a");
         }
-        Log.e("creating user detail name",user.shelter);
-        Log.e("creating user detail num",user.number+"");
-        ((TextView)findViewById(R.id.textView8)).setText(user.shelter);
-        ((TextView)findViewById(R.id.textView9)).setText(user.number+"");
+        Log.e("creating user detail name",user.getShelter());
+        Log.e("creating user detail num",user.getNumber()+"");
+        ((TextView)findViewById(R.id.textView8)).setText(user.getShelter());
+        ((TextView)findViewById(R.id.textView9)).setText(user.getNumber()+"");
     }
 
     public void releaseBeds(View view){
-        User user =((MyApp)getApplication()).current;
-        Shelter shelter = ((MyApp)getApplication()).findByName(user.shelter);
+        User user =((MyApp)getApplication()).getCurrent();
+        Shelter shelter = ((MyApp)getApplication()).findByName(user.getShelter());
         if(shelter == null){
             Toast toast = Toast.makeText(this, "No shelter space allocated", Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
-        int num = user.number;
-        user.number = 0;
-        user.shelter="";
-        shelter.capacity += num;
-        shelter.claimed -= num;
-        ((TextView)findViewById(R.id.textView8)).setText(user.shelter);
-        ((TextView)findViewById(R.id.textView9)).setText(user.number+"");
+        int num = user.getNumber();
+        user.setNumber(0);
+        user.setShelter("");
+        shelter.setCapacity(shelter.getCapacity()+ num);
+        shelter.setClaimed(shelter.getClaimed() - num);
+        ((TextView)findViewById(R.id.textView8)).setText(user.getShelter());
+        ((TextView)findViewById(R.id.textView9)).setText(user.getNumber()+"");
         ((MyApp)getApplication()).writePpl();
         ((MyApp)getApplication()).writeShelters();
     }

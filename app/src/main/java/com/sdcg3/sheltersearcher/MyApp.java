@@ -31,10 +31,17 @@ import java.util.stream.Collectors;
 public class MyApp extends Application {
     private final List<User> users = new ArrayList<>();
     private final List<Shelter> shelters = new ArrayList<>();
-    public User current = null;
+    private User current = null;
     private List<Shelter> filtered;
     private Shelter selected;
 
+    public User getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(User current) {
+        this.current = current;
+    }
 
     public void readPpl() {
         Context c = getBaseContext();
@@ -142,17 +149,17 @@ public class MyApp extends Application {
     }
 
     public void claim(int amount, Shelter shelter) {
-        current.shelter = shelter.name;
-        current.number = amount;
-        shelter.capacity -= amount;
-        shelter.claimed += amount;
+        current.setShelter(shelter.getName());
+        current.setNumber(amount);
+        shelter.setCapacity(shelter.getCapacity() - amount);
+        shelter.setClaimed(shelter.getClaimed() + amount);
     }
 
     public boolean isCorrect(String user, String pass) {
         if ((user == null) || (pass == null)) {
             return false;
         }
-        List<User> curr = users.stream().filter((e) -> e.name.equals(user))
+        List<User> curr = users.stream().filter((e) -> e.getName().equals(user))
                 .collect(Collectors.toList());
         User u = curr.get(0);
         if (!curr.isEmpty() && u.checkPass(pass)) {
@@ -172,7 +179,7 @@ public class MyApp extends Application {
     public Shelter findByName(String s) {
         for (Shelter shelter :
                 shelters) {
-            if (shelter.name.equals(s)) {
+            if (shelter.getName().equals(s)) {
                 return shelter;
             }
         }
@@ -199,7 +206,7 @@ public class MyApp extends Application {
             String restrictions = el.restrictions.toLowerCase();
 
             return restrictions.contains(gender) && !restrictions.contains(other)
-                    && restrictions.contains(age) && el.name.toLowerCase().contains(name);
+                    && restrictions.contains(age) && el.getName().toLowerCase().contains(name);
         }).collect(Collectors.toList());
     }
 }

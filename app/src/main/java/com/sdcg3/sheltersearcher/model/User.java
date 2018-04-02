@@ -8,14 +8,36 @@ import java.util.Objects;
  */
 
 public class User {
-    public final String name;
+    private final String name;
     private final String pass;
-    public String shelter;
-    public int number;
+    private String shelter;
+    private int number;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getShelter() {
+        return shelter;
+    }
+
+    public void setShelter(String shelter) {
+        this.shelter = shelter;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
     public User(String name, String pass){
         this.name = name;
         this.pass = pass;
         this.shelter = "";
+
         this.number = 0;
     }
     public User(String name, String pass, String shelter, String number){

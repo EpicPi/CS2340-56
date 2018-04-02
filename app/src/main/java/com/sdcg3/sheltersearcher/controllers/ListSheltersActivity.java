@@ -18,12 +18,11 @@ import java.util.List;
  * Lists the filtered shelters
  */
 public class ListSheltersActivity extends AppCompatActivity {
-
-    private ListView listView;
     private List<Shelter> shelters;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ListView listView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_shelters);
         shelters = ((MyApp) getApplication()).getFiltered();
