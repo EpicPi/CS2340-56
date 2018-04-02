@@ -16,6 +16,9 @@ import com.sdcg3.sheltersearcher.R;
 
 import java.util.stream.Stream;
 
+/**
+ * shelter search
+ */
 public class SearchSheltersActivity extends AppCompatActivity {
     private Spinner GenderSpinner;
     private Spinner AgeSpinner;
@@ -41,6 +44,10 @@ public class SearchSheltersActivity extends AppCompatActivity {
         AgeSpinner.setAdapter(ageAdapter);
     }
 
+    /**
+     * search activity
+     * @param view view
+     */
     public void search(View view) {
         Object g = GenderSpinner.getSelectedItem();
         GENDER gen = GENDER.valueOf(g.toString());

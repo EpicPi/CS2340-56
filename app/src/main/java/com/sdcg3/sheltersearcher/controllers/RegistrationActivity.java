@@ -35,6 +35,10 @@ public class RegistrationActivity extends AppCompatActivity {
         accountTypeSpinner.setAdapter(adapterAccountType);
     }
 
+    /**
+     * registration activity
+     * @param view view
+     */
     public void register(View view) {
 
         EditText firstName = findViewById(R.id.editFirstName);
@@ -67,6 +71,10 @@ public class RegistrationActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * cancel button
+     * @param view view
+     */
     public void cancel(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

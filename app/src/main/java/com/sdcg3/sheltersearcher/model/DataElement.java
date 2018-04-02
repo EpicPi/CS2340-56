@@ -26,13 +26,28 @@ public class DataElement {
         return  _name + "\n" + _description;
     }
 
-    /*
-     Getters for the data elements
+    /**
+     *
+     * @return name
      */
     public String getName() { return _name;}
+
+    /**
+     *
+     * @return description
+     */
     public String getDescription() {  return _description; }
 
+    /**
+     *
+     * @return latitude
+     */
     public double getLatitude() { return _location.getLatitude(); }
+
+    /**
+     *
+     * @return longitude
+     */
     public double getLongitude() { return _location.get_longitude(); }
 
 }

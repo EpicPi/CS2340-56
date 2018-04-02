@@ -12,6 +12,9 @@ import com.sdcg3.sheltersearcher.R;
 import com.sdcg3.sheltersearcher.model.Shelter;
 import com.sdcg3.sheltersearcher.model.User;
 
+/**
+ * user detail
+ */
 public class UserDetailActivity extends AppCompatActivity {
 
     @Override
@@ -29,6 +32,11 @@ public class UserDetailActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textView9)).setText(x);
     }
 
+    /**
+     * releases beds
+     *
+     * @param view view
+     */
     public void releaseBeds(View view) {
         User user = ((MyApp) getApplication()).getCurrent();
         Shelter shelter = ((MyApp) getApplication()).findByName(user.getShelter());

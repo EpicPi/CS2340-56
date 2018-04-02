@@ -22,6 +22,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
     }
+
+    /**
+     * Login activity
+     * @param view view
+     */
     public void login(View view){
         EditText user = findViewById(R.id.editUname);
         EditText pass = findViewById(R.id.editPass);
@@ -37,6 +42,11 @@ public class LoginActivity extends AppCompatActivity {
             toast.show();
         }
     }
+
+    /**
+     * cancels login
+     * @param view view
+     */
     public void cancel(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
