@@ -141,8 +141,9 @@ public class MyApp extends Application {
     }
 
     public boolean isCorrect(String user, String pass) {
-        if ((user == null) || (pass == null))
+        if ((user == null) || (pass == null)) {
             return false;
+        }
         List<User> curr = users.stream().filter((e) -> e.name.equals(user))
                 .collect(Collectors.toList());
         if (!curr.isEmpty() && curr.get(0).checkPass(pass)) {
@@ -153,8 +154,9 @@ public class MyApp extends Application {
     }
 
     public List<Shelter> getFiltered() {
-        if (filtered != null)
+        if (filtered != null) {
             return filtered;
+        }
         return shelters;
     }
 
@@ -182,7 +184,7 @@ public class MyApp extends Application {
 
     public void filter(String gender, String age, String name) {
         //capital letters don't exist cause we .toLowerCase everything
-        final String other = gender.equals("men") ? "women" : "LOLOLOLOL";
+        final String other = "men".equals(gender) ? "women" : "LOLOLOLOL";
 
         filtered = shelters.stream().filter((el) -> {
             String restrictions = el.restrictions.toLowerCase();
