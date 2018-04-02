@@ -8,11 +8,14 @@ import java.util.List;
  */
 
 class DataManager {
-    private final List<DataElement> theData = new ArrayList<>();
+    private final List<DataElement> theData;
     private final List<Shelter> shelters;
 
     DataManager(List<Shelter> shelters) {
-        this.shelters = shelters;
+        this.theData = new ArrayList<>();
+        this.shelters = new ArrayList<>();
+        this.shelters.addAll(shelters);
+
         populateDataList();
     }
     private void populateDataList() {
