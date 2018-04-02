@@ -35,21 +35,23 @@ class ShelterAdapter extends ArrayAdapter<Shelter> {
         Shelter shelter = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
+        // Lol
+        View convertView2 = convertView;
 
-        if (convertView == null) {
+        if (convertView2 == null) {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.row_item, parent, false);
-            viewHolder.name = convertView.findViewById(R.id.name);
-            convertView.setTag(viewHolder);
+            convertView2 = inflater.inflate(R.layout.row_item, parent, false);
+            viewHolder.name = convertView2.findViewById(R.id.name);
+            convertView2.setTag(viewHolder);
         } else {
-            viewHolder = (ViewHolder) convertView.getTag();
+            viewHolder = (ViewHolder) convertView2.getTag();
         }
 
         viewHolder.name.setText((shelter != null) ? shelter.name : null);
 
         // Return the completed view to render on screen
-        return convertView;
+        return convertView2;
     }
 }
 
