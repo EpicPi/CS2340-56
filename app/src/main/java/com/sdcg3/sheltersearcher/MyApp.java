@@ -258,10 +258,16 @@ public class MyApp extends Application {
         final String other = "men".equals(gender) ? "women" : "LOLOLOLOL";
 
         filtered = shelters.stream().filter((el) -> {
-            String restrictions = el.getRestrictions().toLowerCase();
+            String restrictions = el.getRestrictions();;
+            restrictions = restrictions.toLowerCase();
 
-            return restrictions.contains(gender) && !restrictions.contains(other)
-                    && restrictions.contains(age) && el.getName().toLowerCase().contains(name);
+            boolean one = restrictions.contains(gender);
+            boolean two = !restrictions.contains(other);
+            boolean three = restrictions.contains(age);
+            String elName = el.getName();
+            elName = elName.toLowerCase();
+            boolean four = elName.contains(name);
+            return one && two && three && four;
         }).collect(Collectors.toList());
     }
 }
