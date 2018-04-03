@@ -168,7 +168,7 @@ public class Shelter {
         this.claimed = claimed;
     }
 
-    public int claimed;
+    private int claimed;
 
     /**
      *
