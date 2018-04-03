@@ -12,12 +12,26 @@ public class User {
     private final String pass;
     public String shelter;
     public int number;
+
+    /**
+     * constructor
+     * @param name name
+     * @param pass pass
+     */
     public User(String name, String pass){
         this.name = name;
         this.pass = pass;
         this.shelter = "";
         this.number = 0;
     }
+
+    /**
+     *
+     * @param name name
+     * @param pass pass
+     * @param shelter shelter
+     * @param number number
+     */
     public User(String name, String pass, String shelter, String number){
         this.name = name;
         this.pass = pass;
@@ -29,9 +43,19 @@ public class User {
         }
     }
 
+    /**
+     *
+     * @return Writable
+     */
     public String[] getWritable(){
         return new String[]{name,pass,shelter,number+""};
     }
+
+    /**
+     *
+     * @param pass pass
+     * @return Writable
+     */
     public boolean checkPass(String pass){
         return this.pass.equals(pass);
     }

@@ -33,7 +33,9 @@ public class MyApp extends Application {
     private List<Shelter> filtered;
     private Shelter selected;
 
-
+    /**
+     * reads ppl from csv
+     */
     public void readPpl() {
         try (
                 Reader reader = Files.newBufferedReader(
@@ -50,6 +52,9 @@ public class MyApp extends Application {
         }
     }
 
+    /**
+     * writes ppl to csv file
+     */
     public void writePpl() {
         try (
                 Writer writer = Files.newBufferedWriter(
@@ -70,6 +75,9 @@ public class MyApp extends Application {
         }
     }
 
+    /**
+     * writes shelters to csv
+     */
     public void writeShelters() {
         try (
                 Writer writer = Files.newBufferedWriter(
@@ -92,6 +100,9 @@ public class MyApp extends Application {
         }
     }
 
+    /**
+     * reads shelters from csv file
+     */
     public void readShelters() {
         try (
                 Reader reader = Files.newBufferedReader(
@@ -110,6 +121,9 @@ public class MyApp extends Application {
         }
     }
 
+    /**
+     * reads shelter from original csv file
+     */
     private void readCSV() {
         shelters.clear();
         InputStream is = getResources().openRawResource(R.raw.csvfile);
@@ -127,6 +141,11 @@ public class MyApp extends Application {
 
     }
 
+    /**
+     * adds user
+     * @param user user to be added
+     * @param pass pass of user
+     */
     public void addUser(String user, String pass) {
         current = new User(user, pass);
         users.add(current);
@@ -134,6 +153,11 @@ public class MyApp extends Application {
         writePpl();
     }
 
+    /**
+     * claims spots at a shelter
+     * @param amount amount to be claimed
+     * @param shelter shelter
+     */
     public void claim(int amount, Shelter shelter) {
         current.shelter = shelter.name;
         current.number = amount;
@@ -141,6 +165,12 @@ public class MyApp extends Application {
         shelter.claimed += amount;
     }
 
+    /**
+     * checks if user matches pass
+     * @param user user to be checked
+     * @param pass pass to be checed
+     * @return true if match, false otherwise
+     */
     public boolean isCorrect(String user, String pass) {
         if ((user == null) || (pass == null)) {
             return false;
@@ -154,6 +184,10 @@ public class MyApp extends Application {
         return false;
     }
 
+    /**
+     * returns list of shelters
+     * @return shelters
+     */
     public List<Shelter> getFiltered() {
         if (filtered != null) {
             return filtered;
@@ -161,6 +195,11 @@ public class MyApp extends Application {
         return shelters;
     }
 
+    /**
+     * finds shelter
+     * @param s shelter to be found
+     * @return shelter object
+     */
     public Shelter findByName(String s) {
         for (Shelter shelter :
                 shelters) {
@@ -171,18 +210,35 @@ public class MyApp extends Application {
         return null;
     }
 
+    /**
+     * resets filtered
+     */
     public void resetFiltered() {
         filtered = null;
     }
 
+    /**
+     * returns selected
+     * @return Shelter
+     */
     public Shelter getSelected() {
         return selected;
     }
 
+    /**
+     * set selected
+     * @param selected Shelter
+     */
     public void setSelected(Shelter selected) {
         this.selected = selected;
     }
 
+    /**
+     * filters by gender, age, and name
+     * @param gender male or female
+     * @param age age
+     * @param name name
+     */
     public void filter(String gender, String age, String name) {
         //capital letters don't exist cause we .toLowerCase everything
         final String other = "men".equals(gender) ? "women" : "LOLOLOLOL";
