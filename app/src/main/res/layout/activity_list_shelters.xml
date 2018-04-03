@@ -20,7 +20,7 @@
         android:layout_width="306dp"
         android:layout_height="60dp"
         android:layout_margin="8dp"
-        android:text="View Map"
+        android:text="@string/view_map_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

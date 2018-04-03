@@ -23,7 +23,7 @@
                 android:layout_marginStart="36dp"
                 android:layout_marginTop="32dp"
                 android:layout_weight="1"
-                android:text="username"
+                android:text="@string/username_field_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +35,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Username"
+                android:hint="@string/username_field_text"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +52,7 @@
                 android:layout_marginStart="36dp"
                 android:layout_marginTop="32dp"
                 android:layout_weight="1"
-                android:text="password"
+                android:text="@string/password_field_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -64,7 +64,7 @@
                 android:layout_marginTop="32dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Password"
+                android:hint="@string/password_field_text"
                 android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editUname" />
@@ -82,7 +82,7 @@
                 android:layout_marginTop="75dp"
                 android:layout_weight="1"
                 android:onClick="login"
-                android:text="login"
+                android:text="@string/login_button_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editPass" />
 
