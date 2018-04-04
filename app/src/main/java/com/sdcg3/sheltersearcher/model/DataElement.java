@@ -52,13 +52,19 @@ public class DataElement {
      * @return longitude
      */
     public double getLongitude() { return _location.get_longitude(); }
-    /*
-                LatLng loc = new
 
+    /**
+     *
+     * @return new LatLng object
      */
     public LatLng getlatlng(){
         return new LatLng(getLatitude(), getLongitude());
     }
+
+    /**
+     *
+     * @return MarkerOptions object with name, description, and new position
+     */
     public MarkerOptions getMO(){
         MarkerOptions mo = new MarkerOptions();
         mo.position(getlatlng());
