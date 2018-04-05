@@ -196,8 +196,9 @@ public class MyApp extends Application {
 
         if (!curr.isEmpty()) {
             User u = curr.get(0);
-            if(u.checkPass(pass))
-            current = u;
+            if(u.checkPass(pass)) {
+                current = u;
+            }
             return true;
         }
         return false;
@@ -263,7 +264,7 @@ public class MyApp extends Application {
         final String other = "men".equals(gender) ? "women" : "LOLOLOLOL";
 
         filtered = shelters.stream().filter((el) -> {
-            String restrictions = el.getRestrictions();;
+            String restrictions = el.getRestrictions();
             restrictions = restrictions.toLowerCase();
 
             boolean one = restrictions.contains(gender);
