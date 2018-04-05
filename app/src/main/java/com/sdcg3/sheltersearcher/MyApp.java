@@ -184,7 +184,7 @@ public class MyApp extends Application {
     /**
      * checks if user matches pass
      * @param user user to be checked
-     * @param pass pass to be checed
+     * @param pass pass to be checked
      * @return true if match, false otherwise
      */
     public boolean isCorrect(String user, String pass) {

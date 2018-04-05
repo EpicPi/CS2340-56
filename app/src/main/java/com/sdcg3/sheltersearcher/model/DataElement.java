@@ -57,7 +57,7 @@ public class DataElement {
      *
      * @return new LatLng object
      */
-    public LatLng getlatlng(){
+    public LatLng getLatitudeLongitude(){
         return new LatLng(getLatitude(), getLongitude());
     }
 
@@ -67,7 +67,7 @@ public class DataElement {
      */
     public MarkerOptions getMO(){
         MarkerOptions mo = new MarkerOptions();
-        mo.position(getlatlng());
+        mo.position(getLatitudeLongitude());
         mo.title(getName());
         mo.snippet(getDescription());
         return mo;
