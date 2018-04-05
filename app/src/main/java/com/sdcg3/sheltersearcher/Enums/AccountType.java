@@ -16,7 +16,7 @@ public enum AccountType implements Serializable {
     /**
      * Constructor for the enumeration
      *
-     * @param name   full name of the account type
+     *
      * @param code   letter code / abbreviation for the account type
      */
     AccountType( String code) {

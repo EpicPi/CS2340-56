@@ -1,5 +1,9 @@
 package com.sdcg3.sheltersearcher.model;
 
+import android.widget.TextView;
+
+import com.sdcg3.sheltersearcher.R;
+
 /**
  * Created by pi on 3/4/18.
  *
@@ -258,5 +262,17 @@ public class Shelter {
     public void removeAmount(int amount){
         capacity -= amount;
         claimed += amount;
+    }
+
+    public void doStuff(TextView capacity,TextView restrictions,TextView longitude,TextView latitude,TextView address,TextView notes,TextView phone, TextView name){
+        String s = this.capacity+"";
+        capacity.setText(s);
+        restrictions.setText(this.restrictions);
+        longitude.setText(this.longitude);
+        latitude.setText(this.latitude);
+        address.setText(this.address);
+        notes.setText(this.notes);
+        phone.setText(this.phone);
+        name.setText(this.name);
     }
 }

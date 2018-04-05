@@ -3,6 +3,7 @@ package com.sdcg3.sheltersearcher;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.opencsv.CSVReader;
@@ -33,6 +34,7 @@ public class MyApp extends Application {
     private final Collection<User> users = new ArrayList<>();
     private final List<Shelter> shelters = new ArrayList<>();
     private User current = null;
+    @Nullable
     private List<Shelter> filtered;
     private Shelter selected;
 

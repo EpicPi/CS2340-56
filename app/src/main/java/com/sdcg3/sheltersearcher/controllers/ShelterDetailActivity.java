@@ -23,15 +23,17 @@ public class ShelterDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_detail);
         shelter = ((MyApp)getApplication()).getSelected();
-        ((TextView)findViewById(R.id.name)).setText(shelter.getName());
+
+        TextView name = findViewById(R.id.name);
         String x = shelter.getCapacity() + "";
-        ((TextView)findViewById(R.id.capacity)).setText(x);
-        ((TextView)findViewById(R.id.restrictions)).setText(shelter.getRestrictions());
-        ((TextView)findViewById(R.id.longitude)).setText(shelter.getLongitude());
-        ((TextView)findViewById(R.id.latitude)).setText(shelter.getLatitude());
-        ((TextView)findViewById(R.id.address)).setText(shelter.getAddress());
-        ((TextView)findViewById(R.id.notes)).setText(shelter.getNotes());
-        ((TextView)findViewById(R.id.phone)).setText(shelter.getPhone());
+        TextView capacity = findViewById(R.id.capacity);
+        TextView restrictions =findViewById(R.id.restrictions);
+        TextView longitude =findViewById(R.id.longitude);
+        TextView latitude =findViewById(R.id.latitude);
+        TextView address =findViewById(R.id.address);
+        TextView notes =findViewById(R.id.notes);
+        TextView phone =findViewById(R.id.phone);
+        shelter.doStuff(capacity,restrictions,longitude,latitude,address,notes,phone,name);
     }
 
     /**

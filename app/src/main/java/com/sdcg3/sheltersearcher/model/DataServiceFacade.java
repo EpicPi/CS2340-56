@@ -1,5 +1,9 @@
 package com.sdcg3.sheltersearcher.model;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.sdcg3.sheltersearcher.MyApp;
+
 import java.util.List;
 
 /**
@@ -36,6 +40,21 @@ public final class DataServiceFacade {
      * @return  the full list of data
      */
     public List<DataElement> getData() { return theData.getData();}
+
+    public void doStuff(GoogleMap googleMap, MyApp app){
+        List<Shelter> filteredAppResults = app.getFiltered();
+        setData(filteredAppResults);
+
+        //get the data to display
+        List<DataElement> dataList;
+        dataList = getData();
+
+        //iterate through the list and add a pin for each element in the model
+        for (DataElement de : dataList) {
+            googleMap.addMarker(de.getMO());
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(de.getLatitudeLongitude()));
+        }
+    }
 
 // --Commented out by Inspection START (4/4/18 10:02 PM):
 //    /**

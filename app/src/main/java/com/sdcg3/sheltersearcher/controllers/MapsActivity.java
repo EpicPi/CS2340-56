@@ -1,5 +1,6 @@
 package com.sdcg3.sheltersearcher.controllers;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -43,18 +44,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //reference to our GRASP Controller interface to the model
         final DataServiceFacade dataService = DataServiceFacade.getInstance();
-        List<Shelter> filteredAppResults = ((MyApp) getApplication()).getFiltered();
-        dataService.setData(filteredAppResults);
-
-        //get the data to display
-        List<DataElement> dataList;
-        dataList = dataService.getData();
-
-        //iterate through the list and add a pin for each element in the model
-        for (DataElement de : dataList) {
-            googleMap.addMarker(de.getMO());
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(de.getLatitudeLongitude()));
-        }
+        dataService.doStuff(googleMap,(MyApp)getApplication());
 
         //Use a custom layout for the pin data
         googleMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());
@@ -70,6 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         /**
          * Make the adapter
          */
+        @SuppressLint("InflateParams")
         CustomInfoWindowAdapter() {
             // hook up the custom layout view in res/custom_map_pin_layout.xml
             LayoutInflater inf = getLayoutInflater();
