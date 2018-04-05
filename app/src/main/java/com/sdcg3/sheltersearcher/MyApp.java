@@ -182,6 +182,8 @@ public class MyApp extends Application {
         current.setShelter(shelter.getName());
         current.setNumber(amount);
         shelter.removeAmount(amount);
+        writePpl();
+        writeShelters();
 
     }
 

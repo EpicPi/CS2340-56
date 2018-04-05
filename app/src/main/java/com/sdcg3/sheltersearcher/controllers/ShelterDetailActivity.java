@@ -74,8 +74,7 @@ public class ShelterDetailActivity extends AppCompatActivity {
         String y = shelter.getCapacity() + "";
         ((TextView)findViewById(R.id.capacity)).setText(y);
         amount.setText("");
-        ((MyApp)getApplication()).writePpl();
-        ((MyApp)getApplication()).writeShelters();
+
 
     }
 }
