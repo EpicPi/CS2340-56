@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -25,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * Login activity
      */
-    public void login(){
+    public void login(View view){
         EditText user = findViewById(R.id.editUname);
         EditText pass = findViewById(R.id.editPass);
         Editable a = user.getText();
@@ -44,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     /**
      * cancels login
      */
-    public void cancel(){
+    public void cancel(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

@@ -3,6 +3,7 @@ package com.sdcg3.sheltersearcher.controllers;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,7 +33,7 @@ public class UserDetailActivity extends AppCompatActivity {
      * releases beds
      *
      */
-    public void releaseBeds() {
+    public void releaseBeds(View view) {
         User user = ((MyApp) getApplication()).getCurrent();
         Shelter shelter = ((MyApp) getApplication()).findByName(user.getShelter());
         if (shelter == null) {
