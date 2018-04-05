@@ -44,7 +44,7 @@ public final class DataServiceFacade {
     /**
      * Does stuff for maps
      * @param googleMap google map
-     * @param app the getAPplication()
+     * @param app the getApplication()
      */
     public void doStuff(GoogleMap googleMap, MyApp app){
         List<Shelter> filteredAppResults = app.getFiltered();
