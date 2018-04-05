@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.sdcg3.sheltersearcher.MyApp;
@@ -27,7 +28,7 @@ public class ListSheltersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list_shelters);
         shelters = ((MyApp) getApplication()).getFiltered();
         listView = findViewById(R.id.list);
-        ShelterAdapter adapter = new ShelterAdapter(shelters, getApplicationContext());
+        ListAdapter adapter = new ShelterAdapter(shelters, getApplicationContext());
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener((AdapterView<?> parent, View view,

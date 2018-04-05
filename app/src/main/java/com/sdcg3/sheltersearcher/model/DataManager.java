@@ -1,6 +1,7 @@
 package com.sdcg3.sheltersearcher.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ class DataManager {
     private final List<DataElement> theData;
     private final List<Shelter> shelters;
 
-    DataManager(List<Shelter> shelters) {
+    DataManager(Collection<Shelter> shelters) {
         this.theData = new ArrayList<>();
         this.shelters = new ArrayList<>();
         this.shelters.addAll(shelters);

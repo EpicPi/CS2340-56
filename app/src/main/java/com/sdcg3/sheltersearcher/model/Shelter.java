@@ -76,7 +76,7 @@ public class Shelter {
      *
      * @return notes
      */
-    public String getNotes() {
+    public CharSequence getNotes() {
         return notes;
     }
 
@@ -92,7 +92,7 @@ public class Shelter {
      *
      * @return longitude
      */
-    public String getLongitude() {
+    public CharSequence getLongitude() {
         return longitude;
     }
 
@@ -108,7 +108,7 @@ public class Shelter {
      *
      * @return latitude
      */
-    public String getLatitude() {
+    public CharSequence getLatitude() {
         return latitude;
     }
 
@@ -124,7 +124,7 @@ public class Shelter {
      *
      * @return address
      */
-    public String getAddress() {
+    public CharSequence getAddress() {
         return address;
     }
 
@@ -140,7 +140,7 @@ public class Shelter {
      *
      * @return phone
      */
-    public String getPhone() {
+    public CharSequence getPhone() {
         return phone;
     }
 

@@ -20,6 +20,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,7 +30,7 @@ import java.util.stream.Collectors;
  */
 
 public class MyApp extends Application {
-    private final List<User> users = new ArrayList<>();
+    private final Collection<User> users = new ArrayList<>();
     private final List<Shelter> shelters = new ArrayList<>();
     private User current = null;
     private List<Shelter> filtered;
@@ -257,7 +258,7 @@ public class MyApp extends Application {
      * @param age age
      * @param name name
      */
-    public void filter(String gender, String age, String name) {
+    public void filter(CharSequence gender, CharSequence age, CharSequence name) {
         //capital letters don't exist cause we .toLowerCase everything
         final String other = "men".equals(gender) ? "women" : "LOLOLOLOL";
 
