@@ -1,5 +1,7 @@
 package com.sdcg3.sheltersearcher.model;
 
+import java.util.List;
+
 /**
  * Created by pi on 3/4/18.
  *
@@ -34,5 +36,14 @@ public class Shelter {
     }
     public String[] getWritable(){
         return new String[]{id,name,capacity+"",restrictions, longi,lati,address,notes,phone,claimed+""};
+    }
+
+    public static Shelter findByName(String s, List<Shelter> shelters) {
+        for (Shelter shelter : shelters) {
+            if (shelter.name.equals(s)) {
+                return shelter;
+            }
+        }
+        return null;
     }
 }
