@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import com.sdcg3.sheltersearcher.Enums.GENDER;
 import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 /**
@@ -31,21 +33,26 @@ public class SearchSheltersActivity extends AppCompatActivity {
         GenderSpinner = findViewById(R.id.gender);
 
         ArrayAdapter genderAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item,
-                Stream.of(GENDER.values()).map(GENDER::name).toArray(String[]::new));
+                android.R.layout.simple_spinner_item, new String[]{"NA", "MALE", "FEMALE"});
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         GenderSpinner.setAdapter(genderAdapter);
 
         AgeSpinner = findViewById(R.id.age);
         ArrayAdapter ageAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item,
-                Stream.of(AGE.values()).map(AGE::name).toArray(String[]::new));
+                new String[]{
+                        "NA",
+                        "FAMILY_NEWBORN",
+                        "CHILDREN",
+                        "YOUNG_ADULTS",
+                        "ANYONE"});
         ageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         AgeSpinner.setAdapter(ageAdapter);
     }
 
     /**
      * search activity
+     *
      * @param view view
      */
     public void search(View view) {
