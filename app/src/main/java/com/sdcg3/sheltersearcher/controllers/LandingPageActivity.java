@@ -25,7 +25,9 @@ public class LandingPageActivity extends AppCompatActivity {
      */
     public void logOut(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        view.clearFocus();
         startActivity(intent);
+
     }
 
     /**
@@ -33,6 +35,7 @@ public class LandingPageActivity extends AppCompatActivity {
      */
     public void showShelters(View view){
         ((MyApp)getApplication()).resetFiltered();
+        view.clearFocus();
         Intent intent = new Intent(this, ListSheltersActivity.class);
         startActivity(intent);
     }
@@ -42,6 +45,7 @@ public class LandingPageActivity extends AppCompatActivity {
      */
     public void searchShelters(View view){
         Intent intent = new Intent(this, SearchSheltersActivity.class);
+        view.clearFocus();
         startActivity(intent);
     }
 
@@ -50,6 +54,7 @@ public class LandingPageActivity extends AppCompatActivity {
      */
     public void showDetail(View view){
         Intent intent = new Intent(this, UserDetailActivity.class);
+        view.clearFocus();
         startActivity(intent);
     }
 

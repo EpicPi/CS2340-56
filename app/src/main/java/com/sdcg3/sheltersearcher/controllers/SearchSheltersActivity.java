@@ -48,6 +48,7 @@ public class SearchSheltersActivity extends AppCompatActivity {
      * search activity
      */
     public void search(View view) {
+        view.clearFocus();
         Object g = GenderSpinner.getSelectedItem();
         GENDER gen = GENDER.valueOf(g.toString());
         Object a = AgeSpinner.getSelectedItem();

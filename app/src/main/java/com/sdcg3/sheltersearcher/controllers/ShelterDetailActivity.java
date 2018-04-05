@@ -38,6 +38,7 @@ public class ShelterDetailActivity extends AppCompatActivity {
      * claim
      */
     public void claim(View view){
+        view.clearFocus();
         EditText amount = findViewById(R.id.editAmount);
         int number;
         try {

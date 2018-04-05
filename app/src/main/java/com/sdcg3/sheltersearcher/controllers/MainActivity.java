@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
      * login intent
      */
     public void login(View view) {
+        view.clearFocus();
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
      * registration intent
      */
     public void registration(View view) {
+        view.clearFocus();
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }

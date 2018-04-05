@@ -27,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
      * Login activity
      */
     public void login(View view){
+        view.clearFocus();
         EditText user = findViewById(R.id.editUname);
         EditText pass = findViewById(R.id.editPass);
         Editable a = user.getText();
@@ -46,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
      * cancels login
      */
     public void cancel(View view){
+        view.clearFocus();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

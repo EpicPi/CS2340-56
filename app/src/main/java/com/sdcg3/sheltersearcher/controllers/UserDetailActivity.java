@@ -32,6 +32,7 @@ public class UserDetailActivity extends AppCompatActivity {
      *
      */
     public void releaseBeds(View view) {
+        view.clearFocus();
         User user = ((MyApp) getApplication()).getCurrent();
         Shelter shelter = ((MyApp) getApplication()).findByName(user.getShelter());
         if (shelter == null) {

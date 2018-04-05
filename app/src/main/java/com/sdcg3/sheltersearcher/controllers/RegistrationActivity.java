@@ -74,6 +74,7 @@ public class RegistrationActivity extends AppCompatActivity {
      * cancel button
      */
     public void cancel(View view) {
+        view.clearFocus();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
