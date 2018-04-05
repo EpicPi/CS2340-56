@@ -32,22 +32,8 @@ public class UserDetailActivity extends AppCompatActivity {
      */
     public void releaseBeds(View view) {
         view.clearFocus();
-        User user = ((MyApp) getApplication()).getCurrent();
-        Shelter shelter = ((MyApp) getApplication()).findByName(user.getShelter());
-        if (shelter == null) {
-            Toast toast = Toast.makeText(this, "No shelter space allocated", Toast.LENGTH_SHORT);
-            toast.show();
-            return;
-        }
-        int num = user.getNumber();
-        user.setNumber(0);
-        user.setShelter("");
-        shelter.setCapacity(shelter.getCapacity() + num);
-        shelter.setClaimed(shelter.getClaimed() - num);
-        ((TextView) findViewById(R.id.textView8)).setText(user.getShelter());
-        String z = user.getNumber() + "";
-        ((TextView) findViewById(R.id.textView9)).setText(z);
-        ((MyApp) getApplication()).writePpl();
-        ((MyApp) getApplication()).writeShelters();
+        ((MyApp)getApplication()).releaseBeds();
+        ((TextView) findViewById(R.id.textView8)).setText("");
+        ((TextView) findViewById(R.id.textView9)).setText("0");
     }
 }

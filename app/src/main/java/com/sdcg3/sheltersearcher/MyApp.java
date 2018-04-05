@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
@@ -277,5 +279,22 @@ public class MyApp extends Application {
             boolean four = elName.contains(name);
             return one && two && three && four;
         }).collect(Collectors.toList());
+    }
+
+    public void releaseBeds(){
+        User user = getCurrent();
+        Shelter shelter = findByName(user.getShelter());
+        if (shelter == null) {
+            Toast toast = Toast.makeText(this, "No shelter space allocated", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        int num = user.getNumber();
+        user.setNumber(0);
+        user.setShelter("");
+        shelter.setCapacity(shelter.getCapacity() + num);
+        shelter.setClaimed(shelter.getClaimed() - num);
+        writePpl();
+        writeShelters();
     }
 }
