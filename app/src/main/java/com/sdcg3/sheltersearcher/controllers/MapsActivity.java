@@ -38,6 +38,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
+    @SuppressWarnings("LawOfDemeter")
     @Override
     public void onMapReady(GoogleMap googleMap) {
 

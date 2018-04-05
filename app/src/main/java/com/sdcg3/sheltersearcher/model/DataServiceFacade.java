@@ -22,7 +22,7 @@ public final class DataServiceFacade {
     }
 
     /**
-     *
+     * @return the data that is set
      * @param shelters shelters
      */
     public List<DataElement> setData(List<Shelter> shelters) {
