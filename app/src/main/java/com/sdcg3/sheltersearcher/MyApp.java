@@ -35,6 +35,10 @@ public class MyApp extends Application {
     private List<Shelter> filtered;
     private Shelter selected;
 
+    /**
+     *
+     * @return current user
+     */
     public User getCurrent() {
         return current;
     }
@@ -172,7 +176,7 @@ public class MyApp extends Application {
     public void claim(int amount, Shelter shelter) {
         current.setShelter(shelter.getName());
         current.setNumber(amount);
-        shelter.removeAMount(amount);
+        shelter.removeAmount(amount);
 
     }
 

@@ -13,22 +13,42 @@ public class User {
     private String shelter;
     private int number;
 
+    /**
+     *
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @return shelter name
+     */
     public String getShelter() {
         return shelter;
     }
 
+    /**
+     *
+     * @param shelter shelter name
+     */
     public void setShelter(String shelter) {
         this.shelter = shelter;
     }
 
+    /**
+     *
+     * @return amount of beds
+     */
     public int getNumber() {
         return number;
     }
 
+    /**
+     *
+     * @param number amount of beds
+     */
     public void setNumber(int number) {
         this.number = number;
     }

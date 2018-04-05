@@ -233,7 +233,11 @@ public class Shelter {
                         Double.parseDouble(longitude)));
     }
 
-    public void removeAMount(int amount){
+    /**
+     *
+     * @param amount removes this from available
+     */
+    public void removeAmount(int amount){
         capacity -= amount;
         claimed += amount;
     }
