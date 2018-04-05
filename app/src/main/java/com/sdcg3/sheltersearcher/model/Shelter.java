@@ -262,7 +262,8 @@ public class Shelter {
         claimed += amount;
     }
 
-    public void doStuff(TextView capacity,TextView restrictions,TextView longitude,TextView latitude,TextView address,TextView notes,TextView phone, TextView name){
+    public void doStuff(TextView capacity,TextView restrictions,TextView longitude,TextView latitude
+            ,TextView address,TextView notes,TextView phone, TextView name){
         String s = this.capacity+"";
         capacity.setText(s);
         restrictions.setText(this.restrictions);
