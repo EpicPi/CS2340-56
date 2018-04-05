@@ -70,7 +70,7 @@ public class MyApp extends Application {
     /**
      * writes ppl to csv file
      */
-    public void writePpl() {
+    private void writePpl() {
         Context c = getBaseContext();
         try (
                 Writer writer = Files.newBufferedWriter(
@@ -94,7 +94,7 @@ public class MyApp extends Application {
     /**
      * writes shelters to csv
      */
-    public void writeShelters() {
+    private void writeShelters() {
         Context c = getBaseContext();
         try (
                 Writer writer = Files.newBufferedWriter(
@@ -225,7 +225,7 @@ public class MyApp extends Application {
      * @param s shelter to be found
      * @return shelter object
      */
-    public Shelter findByName(String s) {
+    private Shelter findByName(String s) {
         for (Shelter shelter :
                 shelters) {
             if (shelter.getName().equals(s)) {

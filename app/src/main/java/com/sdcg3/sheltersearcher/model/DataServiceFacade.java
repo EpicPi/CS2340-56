@@ -31,7 +31,7 @@ public final class DataServiceFacade {
      *
      * @param shelters shelters
      */
-    public void setData(List<Shelter> shelters) {
+    private void setData(List<Shelter> shelters) {
         theData = new DataManager(shelters);
     }
 
@@ -39,7 +39,7 @@ public final class DataServiceFacade {
      * get a list of all the data
      * @return  the full list of data
      */
-    public List<DataElement> getData() { return theData.getData();}
+    private List<DataElement> getData() { return theData.getData();}
 
     public void doStuff(GoogleMap googleMap, MyApp app){
         List<Shelter> filteredAppResults = app.getFiltered();

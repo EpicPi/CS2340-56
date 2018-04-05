@@ -56,13 +56,15 @@ public class Shelter {
         return capacity;
     }
 
-    /**
-     *
-     * @param capacity capacity
-     */
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
-    }
+// --Commented out by Inspection START (4/4/18 11:27 PM):
+//    /**
+//     *
+//     * @param capacity capacity
+//     */
+//    public void setCapacity(int capacity) {
+//        this.capacity = capacity;
+//    }
+// --Commented out by Inspection STOP (4/4/18 11:27 PM)
 
     /**
      *
@@ -82,13 +84,15 @@ public class Shelter {
 //    }
 // --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
-    /**
-     *
-     * @return notes
-     */
-    public CharSequence getNotes() {
-        return notes;
-    }
+// --Commented out by Inspection START (4/4/18 11:27 PM):
+//    /**
+//     *
+//     * @return notes
+//     */
+//    public CharSequence getNotes() {
+//        return notes;
+//    }
+// --Commented out by Inspection STOP (4/4/18 11:27 PM)
 
 // --Commented out by Inspection START (4/4/18 10:03 PM):
 //    /**
@@ -100,13 +104,15 @@ public class Shelter {
 //    }
 // --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
-    /**
-     *
-     * @return longitude
-     */
-    public CharSequence getLongitude() {
-        return longitude;
-    }
+// --Commented out by Inspection START (4/4/18 11:27 PM):
+//    /**
+//     *
+//     * @return longitude
+//     */
+//    public CharSequence getLongitude() {
+//        return longitude;
+//    }
+// --Commented out by Inspection STOP (4/4/18 11:27 PM)
 
 // --Commented out by Inspection START (4/4/18 10:03 PM):
 //    /**
@@ -118,13 +124,15 @@ public class Shelter {
 //    }
 // --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
-    /**
-     *
-     * @return latitude
-     */
-    public CharSequence getLatitude() {
-        return latitude;
-    }
+// --Commented out by Inspection START (4/4/18 11:27 PM):
+//    /**
+//     *
+//     * @return latitude
+//     */
+//    public CharSequence getLatitude() {
+//        return latitude;
+//    }
+// --Commented out by Inspection STOP (4/4/18 11:27 PM)
 
 // --Commented out by Inspection START (4/4/18 10:03 PM):
 //    /**
@@ -136,13 +144,15 @@ public class Shelter {
 //    }
 // --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
-    /**
-     *
-     * @return address
-     */
-    public CharSequence getAddress() {
-        return address;
-    }
+// --Commented out by Inspection START (4/4/18 11:27 PM):
+//    /**
+//     *
+//     * @return address
+//     */
+//    public CharSequence getAddress() {
+//        return address;
+//    }
+// --Commented out by Inspection STOP (4/4/18 11:27 PM)
 
 // --Commented out by Inspection START (4/4/18 10:03 PM):
 //    /**
@@ -154,13 +164,15 @@ public class Shelter {
 //    }
 // --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
-    /**
-     *
-     * @return phone
-     */
-    public CharSequence getPhone() {
-        return phone;
-    }
+// --Commented out by Inspection START (4/4/18 11:27 PM):
+//    /**
+//     *
+//     * @return phone
+//     */
+//    public CharSequence getPhone() {
+//        return phone;
+//    }
+// --Commented out by Inspection STOP (4/4/18 11:27 PM)
 
 // --Commented out by Inspection START (4/4/18 10:03 PM):
 //    /**
@@ -172,21 +184,25 @@ public class Shelter {
 //    }
 // --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
-    /**
-     *
-     * @return claimed
-     */
-    public int getClaimed() {
-        return claimed;
-    }
+// --Commented out by Inspection START (4/4/18 11:27 PM):
+//    /**
+//     *
+//     * @return claimed
+//     */
+//    public int getClaimed() {
+//        return claimed;
+//    }
+// --Commented out by Inspection STOP (4/4/18 11:27 PM)
 
-    /**
-     *
-     * @param claimed claimed
-     */
-    public void setClaimed(int claimed) {
-        this.claimed = claimed;
-    }
+// --Commented out by Inspection START (4/4/18 11:27 PM):
+//    /**
+//     *
+//     * @param claimed claimed
+//     */
+//    public void setClaimed(int claimed) {
+//        this.claimed = claimed;
+//    }
+// --Commented out by Inspection STOP (4/4/18 11:27 PM)
 
     private int claimed;
 
