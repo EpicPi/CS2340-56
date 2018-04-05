@@ -6,15 +6,15 @@ package com.sdcg3.sheltersearcher.model;
  */
 
 public class Shelter {
-    private String id;
-    private String name;
+    private final String id;
+    private final String name;
     private int capacity;
-    private String restrictions;
-    private String notes;
-    private String longitude;
-    private String latitude;
-    private String address;
-    private String phone;
+    private final String restrictions;
+    private final String notes;
+    private final String longitude;
+    private final String latitude;
+    private final String address;
+    private final String phone;
 
 // --Commented out by Inspection START (4/4/18 10:03 PM):
 //    /**

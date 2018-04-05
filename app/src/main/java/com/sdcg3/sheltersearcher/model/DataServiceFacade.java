@@ -17,7 +17,7 @@ public final class DataServiceFacade {
 
     private DataManager theData;
 
-    private DataElement theLastAddedElement;
+    // --Commented out by Inspection (4/4/18 10:06 PM):private DataElement theLastAddedElement;
 
 
     private DataServiceFacade() {

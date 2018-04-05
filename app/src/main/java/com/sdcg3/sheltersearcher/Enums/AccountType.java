@@ -26,18 +26,22 @@ public enum AccountType implements Serializable {
         this. name = name;
         this. code = code;
     }
-    /**
-     * Returns full account type name
-     * @return   the full account type name
-     */
-    public String getName() { return name; }
+// --Commented out by Inspection START (4/4/18 10:06 PM):
+//    /**
+//     * Returns full account type name
+//     * @return   the full account type name
+//     */
+//    public String getName() { return name; }
+// --Commented out by Inspection STOP (4/4/18 10:06 PM)
 
 
-    /**
-     * Returns abbrev
-     * @return the abbreviation for the account type
-     */
-    public String getCode() { return code; }
+// --Commented out by Inspection START (4/4/18 10:06 PM):
+//    /**
+//     * Returns abbrev
+//     * @return the abbreviation for the account type
+//     */
+//    public String getCode() { return code; }
+// --Commented out by Inspection STOP (4/4/18 10:06 PM)
 
     /**
      * Returns display string rep
