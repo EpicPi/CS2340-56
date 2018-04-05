@@ -16,29 +16,35 @@ public class Shelter {
     private String address;
     private String phone;
 
-    /**
-     *
-     * @return String id
-     */
-    public String getId() {
-        return id;
-    }
+// --Commented out by Inspection START (4/4/18 10:03 PM):
+//    /**
+//     *
+//     * @return String id
+//     */
+//    public String getId() {
+//        return id;
+//    }
+// --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
-    /**
-     * sets id
-     * @param id id
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
+// --Commented out by Inspection START (4/4/18 10:03 PM):
+//    /**
+//     * sets id
+//     * @param id id
+//     */
+//    public void setId(String id) {
+//        this.id = id;
+//    }
+// --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
-    /**
-     * name
-     * @param name name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+// --Commented out by Inspection START (4/4/18 10:03 PM):
+//    /**
+//     * name
+//     * @param name name
+//     */
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+// --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
     /**
      *
@@ -64,13 +70,15 @@ public class Shelter {
         return restrictions;
     }
 
-    /**
-     *
-     * @param restrictions restrictions
-     */
-    public void setRestrictions(String restrictions) {
-        this.restrictions = restrictions;
-    }
+// --Commented out by Inspection START (4/4/18 10:03 PM):
+//    /**
+//     *
+//     * @param restrictions restrictions
+//     */
+//    public void setRestrictions(String restrictions) {
+//        this.restrictions = restrictions;
+//    }
+// --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
     /**
      *
@@ -80,13 +88,15 @@ public class Shelter {
         return notes;
     }
 
-    /**
-     *
-     * @param notes notes
-     */
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
+// --Commented out by Inspection START (4/4/18 10:03 PM):
+//    /**
+//     *
+//     * @param notes notes
+//     */
+//    public void setNotes(String notes) {
+//        this.notes = notes;
+//    }
+// --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
     /**
      *
@@ -96,13 +106,15 @@ public class Shelter {
         return longitude;
     }
 
-    /**
-     *
-     * @param longitude longitude
-     */
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
+// --Commented out by Inspection START (4/4/18 10:03 PM):
+//    /**
+//     *
+//     * @param longitude longitude
+//     */
+//    public void setLongitude(String longitude) {
+//        this.longitude = longitude;
+//    }
+// --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
     /**
      *
@@ -112,13 +124,15 @@ public class Shelter {
         return latitude;
     }
 
-    /**
-     *
-     * @param latitude latitude
-     */
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
+// --Commented out by Inspection START (4/4/18 10:03 PM):
+//    /**
+//     *
+//     * @param latitude latitude
+//     */
+//    public void setLatitude(String latitude) {
+//        this.latitude = latitude;
+//    }
+// --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
     /**
      *
@@ -128,13 +142,15 @@ public class Shelter {
         return address;
     }
 
-    /**
-     *
-     * @param address address
-     */
-    public void setAddress(String address) {
-        this.address = address;
-    }
+// --Commented out by Inspection START (4/4/18 10:03 PM):
+//    /**
+//     *
+//     * @param address address
+//     */
+//    public void setAddress(String address) {
+//        this.address = address;
+//    }
+// --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
     /**
      *
@@ -144,13 +160,15 @@ public class Shelter {
         return phone;
     }
 
-    /**
-     *
-     * @param phone phone
-     */
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+// --Commented out by Inspection START (4/4/18 10:03 PM):
+//    /**
+//     *
+//     * @param phone phone
+//     */
+//    public void setPhone(String phone) {
+//        this.phone = phone;
+//    }
+// --Commented out by Inspection STOP (4/4/18 10:03 PM)
 
     /**
      *

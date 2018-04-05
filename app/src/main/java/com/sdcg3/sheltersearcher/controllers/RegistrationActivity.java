@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -37,9 +36,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
     /**
      * registration activity
-     * @param view view
      */
-    public void register(View view) {
+    public void register() {
 
         EditText firstName = findViewById(R.id.editFirstName);
         EditText lastName = findViewById(R.id.editLastName);
@@ -73,9 +71,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
     /**
      * cancel button
-     * @param view view
      */
-    public void cancel(View view) {
+    public void cancel() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

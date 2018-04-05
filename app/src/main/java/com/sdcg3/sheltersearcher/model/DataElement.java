@@ -33,25 +33,25 @@ public class DataElement {
      *
      * @return name
      */
-    public String getName() { return _name;}
+    private String getName() { return _name;}
 
     /**
      *
      * @return description
      */
-    public String getDescription() {  return _description; }
+    private String getDescription() {  return _description; }
 
     /**
      *
      * @return latitude
      */
-    public double getLatitude() { return _location.getLatitude(); }
+    private double getLatitude() { return _location.getLatitude(); }
 
     /**
      *
      * @return longitude
      */
-    public double getLongitude() { return _location.get_longitude(); }
+    private double getLongitude() { return _location.get_longitude(); }
 
     /**
      *

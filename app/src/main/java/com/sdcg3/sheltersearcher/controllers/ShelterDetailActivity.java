@@ -3,7 +3,6 @@ package com.sdcg3.sheltersearcher.controllers;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,9 +35,8 @@ public class ShelterDetailActivity extends AppCompatActivity {
 
     /**
      * claim
-     * @param view view
      */
-    public void claim(View view){
+    public void claim(){
         EditText amount = findViewById(R.id.editAmount);
         int number;
         try {

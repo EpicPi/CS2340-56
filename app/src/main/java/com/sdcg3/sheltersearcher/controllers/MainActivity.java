@@ -3,7 +3,6 @@ package com.sdcg3.sheltersearcher.controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 
 import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
@@ -28,18 +27,16 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * login intent
-     * @param view view
      */
-    public void login(View view) {
+    public void login() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 
     /**
      * registration intent
-     * @param view view
      */
-    public void registration(View view) {
+    public void registration() {
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }

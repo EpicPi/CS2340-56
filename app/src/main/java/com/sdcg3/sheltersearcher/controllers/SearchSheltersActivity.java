@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -46,9 +45,8 @@ public class SearchSheltersActivity extends AppCompatActivity {
 
     /**
      * search activity
-     * @param view view
      */
-    public void search(View view) {
+    public void search() {
         Object g = GenderSpinner.getSelectedItem();
         GENDER gen = GENDER.valueOf(g.toString());
         Object a = AgeSpinner.getSelectedItem();
