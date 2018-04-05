@@ -4,11 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
-import com.sdcg3.sheltersearcher.model.Shelter;
 import com.sdcg3.sheltersearcher.model.User;
 
 /**

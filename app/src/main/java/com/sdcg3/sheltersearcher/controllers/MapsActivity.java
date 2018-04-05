@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -16,11 +15,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
 
-import java.util.List;
-
-import com.sdcg3.sheltersearcher.model.DataElement;
 import com.sdcg3.sheltersearcher.model.DataServiceFacade;
-import com.sdcg3.sheltersearcher.model.Shelter;
 
 
 /**

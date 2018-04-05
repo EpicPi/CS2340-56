@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.opencsv.CSVReader;

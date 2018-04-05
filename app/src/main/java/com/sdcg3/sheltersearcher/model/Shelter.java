@@ -2,8 +2,6 @@ package com.sdcg3.sheltersearcher.model;
 
 import android.widget.TextView;
 
-import com.sdcg3.sheltersearcher.R;
-
 /**
  * Created by pi on 3/4/18.
  *
