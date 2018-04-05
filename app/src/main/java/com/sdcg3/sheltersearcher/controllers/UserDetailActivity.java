@@ -22,8 +22,6 @@ public class UserDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         User user = ((MyApp) getApplication()).getCurrent();
         setContentView(R.layout.activity_user_detail);
-        Log.e("creating user detail name", user.getShelter());
-        Log.e("creating user detail num", user.getNumber() + "");
         ((TextView) findViewById(R.id.textView8)).setText(user.getShelter());
         String x = user.getNumber() + "";
         ((TextView) findViewById(R.id.textView9)).setText(x);

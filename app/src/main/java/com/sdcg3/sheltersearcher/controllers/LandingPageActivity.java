@@ -48,7 +48,7 @@ public class LandingPageActivity extends AppCompatActivity {
     /**
      * Show details in view
      */
-    public void showDetail(){
+    public void showDetail(View view){
         Intent intent = new Intent(this, UserDetailActivity.class);
         startActivity(intent);
     }
