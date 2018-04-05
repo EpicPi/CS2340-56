@@ -278,6 +278,13 @@ public class Shelter {
         claimed += amount;
     }
 
+    /**
+     * assigns first set of text views
+     * @param capacity capacity
+     * @param restrictions restrictions
+     * @param longitude longitude
+     * @param latitude latitude
+     */
     public void doStuff(TextView capacity,TextView restrictions,TextView longitude,
                         TextView latitude){
         String s = this.capacity+"";
@@ -286,8 +293,15 @@ public class Shelter {
         longitude.setText(this.longitude);
         latitude.setText(this.latitude);
     }
-    public void doStuff2(TextView address,TextView notes,TextView phone, TextView name){
 
+    /**
+     * assigns second set of text views
+     * @param address address
+     * @param notes notes
+     * @param phone phone
+     * @param name name
+     */
+    public void doStuff2(TextView address,TextView notes,TextView phone, TextView name){
         address.setText(this.address);
         notes.setText(this.notes);
         phone.setText(this.phone);

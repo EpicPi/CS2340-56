@@ -197,7 +197,8 @@ public class MyApp extends Application {
         }
         List<User> n = new ArrayList<>();
         for (User u : users) {
-            if(u.getName().equals(user)){
+            String nam = u.getName();
+            if(nam.equals(user)){
                 n.add(u);
             }
         }
@@ -294,6 +295,9 @@ public class MyApp extends Application {
         }
     }
 
+    /**
+     * releases beds
+     */
     public void releaseBeds(){
         User user = getCurrent();
         Shelter shelter = findByName(user.getShelter());
