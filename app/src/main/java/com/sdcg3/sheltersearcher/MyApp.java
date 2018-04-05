@@ -196,11 +196,15 @@ public class MyApp extends Application {
         if ((user == null) || (pass == null)) {
             return false;
         }
-        List<User> curr = users.stream().filter((e) -> e.getName().equals(user))
-                .collect(Collectors.toList());
+        List<User> n = new ArrayList<>();
+        for (User u : users) {
+            if(u.getName().equals(user)){
+                n.add(u);
+            }
+        }
 
-        if (!curr.isEmpty()) {
-            User u = curr.get(0);
+        if (!n.isEmpty()) {
+            User u = n.get(0);
             if(u.checkPass(pass)) {
                 current = u;
             }
@@ -228,7 +232,8 @@ public class MyApp extends Application {
     private Shelter findByName(String s) {
         for (Shelter shelter :
                 shelters) {
-            if (shelter.getName().equals(s)) {
+            String nam = shelter.getName();
+            if (nam.equals(s)) {
                 return shelter;
             }
         }
@@ -267,8 +272,14 @@ public class MyApp extends Application {
     public void filter(CharSequence gender, CharSequence age, CharSequence name) {
         //capital letters don't exist cause we .toLowerCase everything
         final String other = "men".equals(gender) ? "women" : "LOLOLOLOL";
+        if(filtered == null){
+            filtered = new ArrayList<>();
+        }else {
+            filtered.clear();
+        }
 
-        filtered = shelters.stream().filter((el) -> {
+        for (Shelter el :
+                shelters) {
             String restrictions = el.getRestrictions();
             restrictions = restrictions.toLowerCase();
 
@@ -278,8 +289,10 @@ public class MyApp extends Application {
             String elName = el.getName();
             elName = elName.toLowerCase();
             boolean four = elName.contains(name);
-            return one && two && three && four;
-        }).collect(Collectors.toList());
+            if( one && two && three && four){
+                filtered.add(el);
+            }
+        }
     }
 
     public void releaseBeds(){
