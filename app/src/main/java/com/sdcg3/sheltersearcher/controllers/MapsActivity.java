@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -15,7 +16,10 @@ import com.google.android.gms.maps.model.Marker;
 import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
 
+import com.sdcg3.sheltersearcher.model.DataElement;
 import com.sdcg3.sheltersearcher.model.DataServiceFacade;
+
+import java.util.List;
 
 
 /**
@@ -39,8 +43,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //reference to our GRASP Controller interface to the model
         final DataServiceFacade dataService = DataServiceFacade.getInstance();
-        dataService.doStuff(googleMap,(MyApp)getApplication());
+        List<DataElement> dataList =dataService.setData(((MyApp)getApplication()).getFiltered());
 
+        for (DataElement de : dataList) {
+            googleMap.addMarker(de.getMO());
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(de.getLatitudeLongitude()));
+        }
         //Use a custom layout for the pin data
         googleMap.setInfoWindowAdapter(new CustomInfoWindowAdapter());
     }

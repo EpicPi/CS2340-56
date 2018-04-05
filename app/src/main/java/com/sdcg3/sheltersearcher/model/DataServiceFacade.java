@@ -1,9 +1,5 @@
 package com.sdcg3.sheltersearcher.model;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.sdcg3.sheltersearcher.MyApp;
-
 import java.util.List;
 
 /**
@@ -19,8 +15,6 @@ public final class DataServiceFacade {
      */
     public static DataServiceFacade getInstance() { return INSTANCE; }
 
-    private DataManager theData;
-
     // --Commented out by Inspection (4/4/18 10:06 PM):private DataElement theLastAddedElement;
 
 
@@ -31,35 +25,19 @@ public final class DataServiceFacade {
      *
      * @param shelters shelters
      */
-    private void setData(List<Shelter> shelters) {
-        theData = new DataManager(shelters);
+    public List<DataElement> setData(List<Shelter> shelters) {
+        DataManager theData = new DataManager(shelters);
+        return theData.getData();
     }
 
-    /**
-     * get a list of all the data
-     * @return  the full list of data
-     */
-    private List<DataElement> getData() { return theData.getData();}
+// --Commented out by Inspection START (4/5/18 12:47 AM):
+//    /**
+//     * get a list of all the data
+//     * @return  the full list of data
+//     */
+//    private List<DataElement> getData() { return theData.getData();}
+// --Commented out by Inspection STOP (4/5/18 12:47 AM)
 
-    /**
-     * Does stuff for maps
-     * @param googleMap google map
-     * @param app the getApplication()
-     */
-    public void doStuff(GoogleMap googleMap, MyApp app){
-        List<Shelter> filteredAppResults = app.getFiltered();
-        setData(filteredAppResults);
-
-        //get the data to display
-        List<DataElement> dataList;
-        dataList = getData();
-
-        //iterate through the list and add a pin for each element in the model
-        for (DataElement de : dataList) {
-            googleMap.addMarker(de.getMO());
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(de.getLatitudeLongitude()));
-        }
-    }
 
 // --Commented out by Inspection START (4/4/18 10:02 PM):
 //    /**

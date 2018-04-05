@@ -40,6 +40,7 @@ public class ShelterDetailActivity extends AppCompatActivity {
      * claim
      * @param view view
      */
+    @SuppressWarnings("LawOfDemeter")
     public void claim(View view){
         view.clearFocus();
         EditText amount = findViewById(R.id.editAmount);

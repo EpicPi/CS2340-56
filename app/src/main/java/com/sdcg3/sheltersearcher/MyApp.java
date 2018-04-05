@@ -298,6 +298,7 @@ public class MyApp extends Application {
     /**
      * releases beds
      */
+    @SuppressWarnings("LawOfDemeter")
     public void releaseBeds(){
         User user = getCurrent();
         Shelter shelter = findByName(user.getShelter());

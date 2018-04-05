@@ -5,6 +5,7 @@ package com.sdcg3.sheltersearcher.Enums;
  * GENDER ENUM
  */
 
+@SuppressWarnings("unused")
 public enum GENDER {
     NA(""),MALE("men"),FEMALE("women");
 

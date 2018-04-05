@@ -51,6 +51,7 @@ public class SearchSheltersActivity extends AppCompatActivity {
      *
      * @param view view
      */
+    @SuppressWarnings("LawOfDemeter")
     public void search(View view) {
         view.clearFocus();
         Object g = GenderSpinner.getSelectedItem();

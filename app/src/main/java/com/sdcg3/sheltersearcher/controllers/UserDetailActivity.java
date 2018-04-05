@@ -14,6 +14,7 @@ import com.sdcg3.sheltersearcher.model.User;
  */
 public class UserDetailActivity extends AppCompatActivity {
 
+    @SuppressWarnings("LawOfDemeter")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

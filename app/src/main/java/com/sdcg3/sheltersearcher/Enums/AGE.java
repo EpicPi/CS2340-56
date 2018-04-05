@@ -5,6 +5,7 @@ package com.sdcg3.sheltersearcher.Enums;
  * AGE ENUM
  */
 
+@SuppressWarnings("unused")
 public enum AGE {
     NA(""),
     FAMILY_NEWBORN("families"),
