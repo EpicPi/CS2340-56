@@ -36,6 +36,7 @@ public class ShelterDetailActivity extends AppCompatActivity {
 
     /**
      * claim
+     * @param view view
      */
     public void claim(View view){
         view.clearFocus();

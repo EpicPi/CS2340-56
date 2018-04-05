@@ -46,6 +46,7 @@ public class SearchSheltersActivity extends AppCompatActivity {
 
     /**
      * search activity
+     * @param view view
      */
     public void search(View view) {
         view.clearFocus();

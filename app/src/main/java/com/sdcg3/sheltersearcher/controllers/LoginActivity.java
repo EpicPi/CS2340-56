@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * Login activity
+     * @param view view
      */
     public void login(View view){
         view.clearFocus();
@@ -45,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
     /**
      * cancels login
+     * @param  view view
      */
     public void cancel(View view){
         view.clearFocus();

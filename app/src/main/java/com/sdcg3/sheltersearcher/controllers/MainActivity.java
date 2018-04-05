@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * login intent
+     * @param view view
      */
     public void login(View view) {
         view.clearFocus();
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * registration intent
+     * @param view view
      */
     public void registration(View view) {
         view.clearFocus();

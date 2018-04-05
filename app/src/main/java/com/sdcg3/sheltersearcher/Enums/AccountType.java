@@ -6,8 +6,8 @@ import java.io.Serializable;
  */
 
 public enum AccountType implements Serializable {
-    US ("US","USER"),
-    AD ("AD","ADMIN");
+    US ("USER"),
+    AD ("ADMIN");
 
 
     /** the representation of the account type abbreviation - always 2 characters */
@@ -19,9 +19,9 @@ public enum AccountType implements Serializable {
      * @param name   full name of the account type
      * @param code   letter code / abbreviation for the account type
      */
-    AccountType(String name, String code) {
+    AccountType( String code) {
         /* the full string representation of the account type */
-        String name1 = name;
+//        String name1 = name;
         this. code = code;
     }
 // --Commented out by Inspection START (4/4/18 10:06 PM):

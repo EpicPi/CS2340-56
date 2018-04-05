@@ -2,7 +2,6 @@ package com.sdcg3.sheltersearcher.controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +28,7 @@ public class UserDetailActivity extends AppCompatActivity {
 
     /**
      * releases beds
-     *
+     * @param view view
      */
     public void releaseBeds(View view) {
         view.clearFocus();

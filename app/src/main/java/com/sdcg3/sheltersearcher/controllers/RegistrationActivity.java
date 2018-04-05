@@ -37,9 +37,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
     /**
      * registration activity
+     * @param view view
      */
     public void register(View view) {
-
+        view.clearFocus();
         EditText firstName = findViewById(R.id.editFirstName);
         EditText lastName = findViewById(R.id.editLastName);
         EditText user = findViewById(R.id.editNewUsername);
@@ -72,6 +73,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     /**
      * cancel button
+     * @param view view
      */
     public void cancel(View view) {
         view.clearFocus();

@@ -22,6 +22,7 @@ public class LandingPageActivity extends AppCompatActivity {
 
     /**
      *
+     * @param view view
      */
     public void logOut(View view){
         Intent intent = new Intent(this, MainActivity.class);
@@ -31,7 +32,8 @@ public class LandingPageActivity extends AppCompatActivity {
     }
 
     /**
-     * shows Shelters in view
+     *
+     * @param view view
      */
     public void showShelters(View view){
         ((MyApp)getApplication()).resetFiltered();
@@ -42,6 +44,7 @@ public class LandingPageActivity extends AppCompatActivity {
 
     /**
      * search Shelters in view
+     * @param view view
      */
     public void searchShelters(View view){
         Intent intent = new Intent(this, SearchSheltersActivity.class);
@@ -51,6 +54,7 @@ public class LandingPageActivity extends AppCompatActivity {
 
     /**
      * Show details in view
+     * @param view view
      */
     public void showDetail(View view){
         Intent intent = new Intent(this, UserDetailActivity.class);
