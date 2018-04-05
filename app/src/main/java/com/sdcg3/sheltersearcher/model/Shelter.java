@@ -278,6 +278,14 @@ public class Shelter {
         claimed += amount;
     }
 
+    /**
+     * Does stuff, obviously.
+     *
+     * @param capacity capacity
+     * @param restrictions restrictions
+     * @param longitude longitude
+     * @param latitude latitude
+     */
     public void doStuff(TextView capacity,TextView restrictions,TextView longitude,
                         TextView latitude){
         String s = this.capacity+"";
@@ -286,6 +294,15 @@ public class Shelter {
         longitude.setText(this.longitude);
         latitude.setText(this.latitude);
     }
+
+    /**
+     * Does stuff too, obviously.
+     *
+     * @param address address
+     * @param notes notes
+     * @param phone phone
+     * @param name name
+     */
     public void doStuff2(TextView address,TextView notes,TextView phone, TextView name){
 
         address.setText(this.address);

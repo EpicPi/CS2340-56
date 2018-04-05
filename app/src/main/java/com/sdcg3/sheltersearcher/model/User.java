@@ -101,6 +101,11 @@ public class User {
         return this.pass.equals(pass);
     }
 
+    /**
+     * Releases beds.
+     *
+     * @return number
+     */
     public int releaseBeds(){
         int x = getNumber();
         setNumber(0);

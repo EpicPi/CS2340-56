@@ -294,6 +294,9 @@ public class MyApp extends Application {
         }
     }
 
+    /**
+     * Empties shelters' occupation.
+     */
     public void releaseBeds(){
         User user = getCurrent();
         Shelter shelter = findByName(user.getShelter());

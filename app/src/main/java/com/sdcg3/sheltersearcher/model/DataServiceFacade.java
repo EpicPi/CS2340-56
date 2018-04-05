@@ -41,6 +41,11 @@ public final class DataServiceFacade {
      */
     private List<DataElement> getData() { return theData.getData();}
 
+    /**
+     *  does stuff, obviously
+     * @param googleMap GoogleMap object
+     * @param app app data
+     */
     public void doStuff(GoogleMap googleMap, MyApp app){
         List<Shelter> filteredAppResults = app.getFiltered();
         setData(filteredAppResults);
