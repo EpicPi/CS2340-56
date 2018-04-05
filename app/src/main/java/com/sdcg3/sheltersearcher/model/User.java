@@ -101,4 +101,11 @@ public class User {
         return this.pass.equals(pass);
     }
 
+    public int releaseBeds(){
+        int x = getNumber();
+        setNumber(0);
+        setShelter("");
+        return x;
+    }
+
 }

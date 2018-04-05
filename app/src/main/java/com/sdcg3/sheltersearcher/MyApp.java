@@ -289,11 +289,8 @@ public class MyApp extends Application {
             toast.show();
             return;
         }
-        int num = user.getNumber();
-        user.setNumber(0);
-        user.setShelter("");
-        shelter.setCapacity(shelter.getCapacity() + num);
-        shelter.setClaimed(shelter.getClaimed() - num);
+        int num = user.releaseBeds();
+        shelter.removeAmount(-1*num);
         writePpl();
         writeShelters();
     }
