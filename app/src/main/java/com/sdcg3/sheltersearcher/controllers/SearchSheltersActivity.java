@@ -29,14 +29,14 @@ public class SearchSheltersActivity extends AppCompatActivity {
 
         GenderSpinner = findViewById(R.id.gender);
 
-        ArrayAdapter<String> genderAdapter = new ArrayAdapter(this,
+        ArrayAdapter genderAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item,
                 Stream.of(GENDER.values()).map(GENDER::name).toArray(String[]::new));
         genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         GenderSpinner.setAdapter(genderAdapter);
 
         AgeSpinner = findViewById(R.id.age);
-        ArrayAdapter<String> ageAdapter = new ArrayAdapter(this,
+        ArrayAdapter ageAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item,
                 Stream.of(AGE.values()).map(AGE::name).toArray(String[]::new));
         ageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

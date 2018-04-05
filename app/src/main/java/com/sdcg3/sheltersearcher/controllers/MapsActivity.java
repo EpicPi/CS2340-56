@@ -19,6 +19,7 @@ import java.util.List;
 
 import com.sdcg3.sheltersearcher.model.DataElement;
 import com.sdcg3.sheltersearcher.model.DataServiceFacade;
+import com.sdcg3.sheltersearcher.model.Shelter;
 
 
 /**
@@ -42,7 +43,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //reference to our GRASP Controller interface to the model
         final DataServiceFacade dataService = DataServiceFacade.getInstance();
-        List filteredAppResults = ((MyApp) getApplication()).getFiltered();
+        List<Shelter> filteredAppResults = ((MyApp) getApplication()).getFiltered();
         dataService.setData(filteredAppResults);
 
         //get the data to display

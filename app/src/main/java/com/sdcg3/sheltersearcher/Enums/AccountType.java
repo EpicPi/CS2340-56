@@ -10,9 +10,6 @@ public enum AccountType implements Serializable {
     AD ("AD","ADMIN");
 
 
-    /** the full string representation of the account type */
-    private final String name;
-
     /** the representation of the account type abbreviation - always 2 characters */
     private final String code;
 
@@ -23,7 +20,8 @@ public enum AccountType implements Serializable {
      * @param code   letter code / abbreviation for the account type
      */
     AccountType(String name, String code) {
-        this. name = name;
+        /* the full string representation of the account type */
+        String name1 = name;
         this. code = code;
     }
 // --Commented out by Inspection START (4/4/18 10:06 PM):
