@@ -262,13 +262,16 @@ public class Shelter {
         claimed += amount;
     }
 
-    public void doStuff(TextView capacity,TextView restrictions,TextView longitude,TextView latitude
-            ,TextView address,TextView notes,TextView phone, TextView name){
+    public void doStuff(TextView capacity,TextView restrictions,TextView longitude,
+                        TextView latitude){
         String s = this.capacity+"";
         capacity.setText(s);
         restrictions.setText(this.restrictions);
         longitude.setText(this.longitude);
         latitude.setText(this.latitude);
+    }
+    public void doStuff2(TextView address,TextView notes,TextView phone, TextView name){
+
         address.setText(this.address);
         notes.setText(this.notes);
         phone.setText(this.phone);

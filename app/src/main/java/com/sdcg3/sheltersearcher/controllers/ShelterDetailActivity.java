@@ -25,7 +25,6 @@ public class ShelterDetailActivity extends AppCompatActivity {
         shelter = ((MyApp)getApplication()).getSelected();
 
         TextView name = findViewById(R.id.name);
-        String x = shelter.getCapacity() + "";
         TextView capacity = findViewById(R.id.capacity);
         TextView restrictions =findViewById(R.id.restrictions);
         TextView longitude =findViewById(R.id.longitude);
@@ -33,7 +32,8 @@ public class ShelterDetailActivity extends AppCompatActivity {
         TextView address =findViewById(R.id.address);
         TextView notes =findViewById(R.id.notes);
         TextView phone =findViewById(R.id.phone);
-        shelter.doStuff(capacity,restrictions,longitude,latitude,address,notes,phone,name);
+        shelter.doStuff(capacity,restrictions,longitude,latitude);
+        shelter.doStuff2(address,notes,phone,name);
     }
 
     /**
