@@ -1,5 +1,7 @@
 package com.sdcg3.sheltersearcher.model;
 
+import java.util.List;
+
 /**
  * Created by pi on 3/4/18.
  *
@@ -20,10 +22,44 @@ public class User {
         this.name = name;
         this.pass = pass;
         this.shelter = shelter;
-        if(number ==""||number == null)
+        if (number =="")
             this.number = 0;
-        else
+        try {
             this.number = Integer.parseInt(number);
+        } catch (NumberFormatException e) {
+            this.number = 0;
+        } catch (NullPointerException e) {
+            this.number = 0;
+        }
+
+    }
+
+    public String getName() {
+        return name;
+    }
+    public String getShelter() {
+        return shelter;
+    }
+    public int getNumber() {
+        return number;
+    }
+
+    public boolean equals(User o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (this.name.equals(o.name)) {
+            if (this.pass.equals(o.pass)) {
+                if (this.shelter.equals(o.shelter)) {
+                    if (this.number == o.number) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 
     public String[] getWritable(){
@@ -33,6 +69,17 @@ public class User {
         return this.pass.equals(pass);
     }
 
+    public static User findByNumber(int num, List<User> users) {
+        if (users == null) {
+            return null;
+        }
 
+        for (User u: users) {
+            if (u.number == num) {
+                return u;
+            }
+        }
 
+        return null;
+    }
 }
