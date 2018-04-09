@@ -7,7 +7,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-// JUnit Test for findByNumber() method in User
+/**
+ * JUnit Test for findByNumber() method in User
+ *
+ * @author Destin Winata
+ */
 public class UserTest {
     List<User> users;
     User u1;

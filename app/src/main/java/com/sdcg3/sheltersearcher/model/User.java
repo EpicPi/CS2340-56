@@ -2,7 +2,6 @@ package com.sdcg3.sheltersearcher.model;
 
 import java.util.List;
 
-import java.util.stream.Collectors;
 
 /**
  * Created by pi on 3/4/18.
