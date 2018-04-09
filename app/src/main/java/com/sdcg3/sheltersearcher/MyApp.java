@@ -141,6 +141,17 @@ public class MyApp extends Application {
         return false;
     }
 
+    public boolean isCorrect(String user, String pass, List<User> userList) {
+        if (user == null || pass == null)
+            return false;
+        List<User> curr = userList.stream().filter((e) -> e.name.equals(user)).collect(Collectors.toList());
+        if (curr.size() > 0 && curr.get(0).checkPass(pass)) {
+            current = curr.get(0);
+            return true;
+        }
+        return false;
+    }
+
     public List<Shelter> getFiltered() {
         if (filtered != null)
             return filtered;
