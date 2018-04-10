@@ -38,6 +38,11 @@ public class User {
     public String getName() {
         return name;
     }
+
+    public String getPass() {
+        return pass;
+    }
+
     public String getShelter() {
         return shelter;
     }
@@ -61,14 +66,6 @@ public class User {
         }
 
         return false;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPass() {
-        return pass;
     }
 
     public String[] getWritable(){
