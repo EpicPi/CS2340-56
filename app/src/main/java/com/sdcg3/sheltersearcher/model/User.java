@@ -46,6 +46,7 @@ public class User {
     public String getShelter() {
         return shelter;
     }
+
     public int getNumber() {
         return number;
     }
@@ -64,7 +65,6 @@ public class User {
                 }
             }
         }
-
         return false;
     }
 
