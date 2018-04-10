@@ -297,6 +297,7 @@ public class MyApp extends Application {
 
     /**
      * releases beds
+     * Empties shelters' occupation.
      */
     @SuppressWarnings("LawOfDemeter")
     public void releaseBeds(){

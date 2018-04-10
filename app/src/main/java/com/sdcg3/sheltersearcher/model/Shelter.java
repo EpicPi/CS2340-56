@@ -279,7 +279,8 @@ public class Shelter {
     }
 
     /**
-     * assigns first set of text views
+     * Does stuff, obviously.
+     *
      * @param capacity capacity
      * @param restrictions restrictions
      * @param longitude longitude
@@ -293,6 +294,7 @@ public class Shelter {
         longitude.setText(this.longitude);
         latitude.setText(this.latitude);
     }
+
 
     /**
      * assigns second set of text views

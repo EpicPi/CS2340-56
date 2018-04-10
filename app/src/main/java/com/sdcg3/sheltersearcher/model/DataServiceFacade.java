@@ -1,5 +1,8 @@
 package com.sdcg3.sheltersearcher.model;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.sdcg3.sheltersearcher.MyApp;
+
 import java.util.List;
 
 /**
@@ -15,8 +18,6 @@ public final class DataServiceFacade {
      */
     public static DataServiceFacade getInstance() { return INSTANCE; }
 
-    // --Commented out by Inspection (4/4/18 10:06 PM):private DataElement theLastAddedElement;
-
 
     private DataServiceFacade() {
     }
@@ -30,13 +31,25 @@ public final class DataServiceFacade {
         return theData.getData();
     }
 
-// --Commented out by Inspection START (4/5/18 12:47 AM):
 //    /**
 //     * get a list of all the data
 //     * @return  the full list of data
 //     */
 //    private List<DataElement> getData() { return theData.getData();}
-// --Commented out by Inspection STOP (4/5/18 12:47 AM)
+
+//    /**
+//     *  does stuff, obviously
+//     * @param googleMap GoogleMap object
+//     * @param app app data
+//     */
+//    public void doStuff(GoogleMap googleMap, MyApp app) {
+//        List<Shelter> filteredAppResults = app.getFiltered();
+//        setData(filteredAppResults);
+//
+//        //get the data to display
+//        List<DataElement> dataList;
+//        dataList = getData();
+//    }
 
 
 // --Commented out by Inspection START (4/4/18 10:02 PM):
