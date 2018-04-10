@@ -1,5 +1,8 @@
 package com.sdcg3.sheltersearcher.model;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * Created by pi on 3/4/18.
  *
@@ -24,6 +27,14 @@ public class User {
             this.number = 0;
         else
             this.number = Integer.parseInt(number);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPass() {
+        return pass;
     }
 
     public String[] getWritable(){
