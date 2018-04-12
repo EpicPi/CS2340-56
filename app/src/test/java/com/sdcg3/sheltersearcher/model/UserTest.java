@@ -23,7 +23,7 @@ public class UserTest {
     public void setUp() throws Exception {
         users = new ArrayList<>();
         u1 = new User("Professor Waters", "12345", null, "1");
-        u2 = new User("Piyush the Legend", "sdcg3", null, "2");
+        u2 = new User("Piyush", "sdcg3", null, "2");
         u3 = new User("Some Idiot", "lol", null, "notavalidnumber");
         u4 = new User("Some Other Idiot", "lolpart2", null, null);
         users.add(u1);
