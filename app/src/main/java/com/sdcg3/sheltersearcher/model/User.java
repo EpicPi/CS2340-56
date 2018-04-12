@@ -45,12 +45,7 @@ public class User {
 
 
 
-    @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + pass.hashCode();
-        return result;
-    }
+
     public String getShelter() {
         return shelter;
     }
@@ -59,18 +54,16 @@ public class User {
         return number;
     }
 
-    public boolean equals(User o) {
-        if (this == o) {
+    public boolean equals(Object obj) {
+        if (this == obj) {
             return true;
         }
+        User u = (User) obj;
+        if (this.name.equals(u.name)) {
+            if (this.pass.equals(u.pass)) {
 
-        if (this.name.equals(o.name)) {
-            if (this.pass.equals(o.pass)) {
-                if (this.shelter.equals(o.shelter)) {
-                    if (this.number == o.number) {
                         return true;
-                    }
-                }
+
             }
         }
         return false;
