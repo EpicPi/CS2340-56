@@ -1,8 +1,5 @@
 package com.sdcg3.sheltersearcher.model;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.sdcg3.sheltersearcher.MyApp;
-
 import java.util.List;
 
 /**
