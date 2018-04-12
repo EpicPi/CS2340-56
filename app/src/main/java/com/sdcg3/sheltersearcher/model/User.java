@@ -37,6 +37,24 @@ public class User {
         return pass;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (!name.equals(user.name)) return false;
+        return pass.equals(user.pass);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + pass.hashCode();
+        return result;
+    }
+
     public String[] getWritable(){
         return new String[]{name,pass,shelter,number+""};
     }

@@ -27,15 +27,10 @@ public class UserList {
     public boolean isCorrectUser(String user, String pass, User current) {
         if (user == null || pass == null)
             return false;
-        for (User use : userList) {
-            if (use != null && use.getName() != null) {
-                if (use.getName().equals(user)) {
-                    if (use.getPass().equals(pass)) {
-                        current = use;
-                        return true;
-                    }
-                }
-            }
+        User user1 = new User(user, pass);
+        if (userList.contains(user1)) {
+            current = user1;
+            return true;
         }
         return false;
 
