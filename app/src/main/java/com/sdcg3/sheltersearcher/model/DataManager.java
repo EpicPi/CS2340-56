@@ -14,12 +14,20 @@ class DataManager {
     List<Shelter> shelters;
 
     DataManager(List<Shelter> shelters) {
-        this.shelters = shelters;
+        if (shelters == null) {
+            this.shelters = new ArrayList<>();
+        } else {
+            this.shelters = shelters;
+        }
         populateDataList();
     }
 
     private void populateDataList() {
-        for (Shelter shel: shelters) {
+        for (int i = 0; i < shelters.size(); i++) {
+            Shelter shel  = shelters.get(i);
+            if (shel == null) {
+                continue;
+            }
             addReport(new DataElement(shel.name,
                     "Phone Number: " + shel.phone + "\n" + "Address:  " + shel.address + "\n" + "Information:  " + shel.notes,
                     new Location(Double.parseDouble(shel.lati), Double.parseDouble(shel.longi))));
@@ -35,6 +43,9 @@ class DataManager {
 
     List<DataElement> getData() { return theData; }
 
+    List<Shelter> getShelters() {
+        return shelters;
+    }
 
 
 }
