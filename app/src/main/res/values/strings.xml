@@ -1,9 +1,36 @@
 <resources>
     <string name="app_name">Shelter Searcher</string>
-    <string name="title_activity_success">Success</string>
     <string name="title_activity_shelter_detail">ShelterDetailActivity</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="user_detail_button_text">USER DETAIL</string>
+    <string name="find_button_text">FIND</string>
+    <string name="show_button_text">SHOW</string>
+    <string name="log_out_button_text">LOG OUT</string>
+    <string name="view_map_button_text">VIEW MAP</string>
+    <string name="username_field_text">Username</string>
+    <string name="password_field_text">Password</string>
+    <string name="login_button_text">LOGIN</string>
+    <string name="register_button_text">REGISTER</string>
+    <string name="first_name_field_text">First Name</string>
+    <string name="last_name_field_text">Last Name</string>
+    <string name="account_type_field_text">Account Type</string>
+    <string name="search_button_text">SEARCH</string>
+    <string name="shelter_name_field_text">Shelter Name</string>
+    <string name="gender_field_text">Gender</string>
+    <string name="age_field_text">Age</string>
+    <string name="name_field_text">Name</string>
+    <string name="capacity_field_text">Capacity</string>
+    <string name="restrictions_field_text">Restrictions</string>
+    <string name="longitude_field_text">Longitude</string>
+    <string name="latitude_field_text">Latitude</string>
+    <string name="address_field_text">Address</string>
+    <string name="notes_field_text">Notes</string>
+    <string name="phone_field_text">Phone</string>
+    <string name="claim_amount_field_text">Claim Amount</string>
+    <string name="amount_field_text">Amount</string>
+    <string name="claim_button_text">CLAIM</string>
+    <string name="release_button_text">RELEASE</string>
+    <string name="textview_field_text">TextView</string>
+    <string name="pin_description_text">pin</string>
 </resources>

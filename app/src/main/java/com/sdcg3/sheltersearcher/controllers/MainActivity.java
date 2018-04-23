@@ -8,6 +8,9 @@ import android.view.View;
 import com.sdcg3.sheltersearcher.MyApp;
 import com.sdcg3.sheltersearcher.R;
 
+/**
+ * main activity
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -22,11 +25,23 @@ public class MainActivity extends AppCompatActivity {
 //            ((MyApp)getApplication()).writePpl();
 //        }
     }
+
+    /**
+     * login intent
+     * @param view view
+     */
     public void login(View view) {
+        view.clearFocus();
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * registration intent
+     * @param view view
+     */
     public void registration(View view) {
+        view.clearFocus();
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }

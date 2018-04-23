@@ -1,15 +1,16 @@
 package com.sdcg3.sheltersearcher.model;
 
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 /**
- * Created by aballari on 3/27/18.
+ * Acts as a data element
  */
 
 public class DataElement {
-    private static int Next_ID = 1000;
-    private int _id;
-    private String _name;
-    private String _description;
-    private Location _location;
+    private final String _name;
+    private final String _description;
+    private final Location _location;
 
     /**
      * Create new element
@@ -21,7 +22,6 @@ public class DataElement {
         _name = name;
         _description = desc;
         _location = location;
-        _id = Next_ID++;
     }
 
     @Override
@@ -29,13 +29,48 @@ public class DataElement {
         return  _name + "\n" + _description;
     }
 
-    /*
-     Getters for the data elements
+    /**
+     *
+     * @return name
      */
-    public String getName() { return _name;}
-    public String getDescription() {  return _description; }
+    private String getName() { return _name;}
 
-    public double getLatitude() { return _location.getLatitude(); }
-    public double getLongitude() { return _location.get_longitude(); }
+    /**
+     *
+     * @return description
+     */
+    private String getDescription() {  return _description; }
+
+    /**
+     *
+     * @return latitude
+     */
+    private double getLatitude() { return _location.getLatitude(); }
+
+    /**
+     *
+     * @return longitude
+     */
+    private double getLongitude() { return _location.get_longitude(); }
+
+    /**
+     *
+     * @return new LatLng object
+     */
+    public LatLng getLatitudeLongitude(){
+        return new LatLng(getLatitude(), getLongitude());
+    }
+
+    /**
+     *
+     * @return MarkerOptions object with name, description, and new position
+     */
+    public MarkerOptions getMO(){
+        MarkerOptions mo = new MarkerOptions();
+        mo.position(getLatitudeLongitude());
+        mo.title(getName());
+        mo.snippet(getDescription());
+        return mo;
+    }
 
 }

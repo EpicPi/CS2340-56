@@ -2,6 +2,7 @@ package com.sdcg3.sheltersearcher.controllers;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -12,52 +13,69 @@ import com.sdcg3.sheltersearcher.R;
 import com.sdcg3.sheltersearcher.model.Shelter;
 import com.sdcg3.sheltersearcher.model.User;
 
+/**
+ * Shelter Detail Activity
+ */
 public class ShelterDetailActivity extends AppCompatActivity {
-    Shelter shelter;
+    private Shelter shelter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_detail);
         shelter = ((MyApp)getApplication()).getSelected();
-        ((TextView)findViewById(R.id.name)).setText(shelter.getName());
-        ((TextView)findViewById(R.id.capacity)).setText(shelter.capacity+"");
-        ((TextView)findViewById(R.id.restrictions)).setText(shelter.restrictions);
-        ((TextView)findViewById(R.id.longitude)).setText(shelter.longi);
-        ((TextView)findViewById(R.id.latitude)).setText(shelter.lati);
-        ((TextView)findViewById(R.id.address)).setText(shelter.address);
-        ((TextView)findViewById(R.id.notes)).setText(shelter.notes);
-        ((TextView)findViewById(R.id.phone)).setText(shelter.phone);
+
+        TextView name = findViewById(R.id.name);
+        TextView capacity = findViewById(R.id.capacity);
+        TextView restrictions =findViewById(R.id.restrictions);
+        TextView longitude =findViewById(R.id.longitude);
+        TextView latitude =findViewById(R.id.latitude);
+        TextView address =findViewById(R.id.address);
+        TextView notes =findViewById(R.id.notes);
+        TextView phone =findViewById(R.id.phone);
+        shelter.doStuff(capacity,restrictions,longitude,latitude);
+        shelter.doStuff2(address,notes,phone,name);
     }
+
+    /**
+     * claim
+     * @param view view
+     */
+    @SuppressWarnings("LawOfDemeter")
     public void claim(View view){
+        view.clearFocus();
         EditText amount = findViewById(R.id.editAmount);
         int number;
         try {
-            number = Integer.parseInt(amount.getText().toString());
+            Editable text = amount.getText();
+            number = Integer.parseInt(text.toString());
         }
         catch (Exception e){
-            Toast toast = Toast.makeText(this, "Please enter a valid amount", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(this, "Please enter a valid amount",
+                    Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
-        User usr = ((MyApp)getApplication()).current;
+        User usr = ((MyApp)getApplication()).getCurrent();
 
-        if(usr.number!=0){
-            Toast toast = Toast.makeText(this, "Must release claimed beds first", Toast.LENGTH_SHORT);
+        if(usr.getNumber()!=0){
+            Toast toast = Toast.makeText(this, "Must release claimed beds first",
+                    Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
 
-        if(shelter.capacity-number<0){
-            Toast toast = Toast.makeText(this, "Shelter does not have enough capacity left", Toast.LENGTH_SHORT);
+        if((shelter.getCapacity() - number) < 0){
+            Toast toast = Toast.makeText(this,
+                    "Shelter does not have enough capacity left", Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
 
         ((MyApp)getApplication()).claim(number,shelter);
-        ((TextView)findViewById(R.id.capacity)).setText(shelter.capacity+"");
+        String y = shelter.getCapacity() + "";
+        ((TextView)findViewById(R.id.capacity)).setText(y);
         amount.setText("");
-        ((MyApp)getApplication()).writePpl();
-        ((MyApp)getApplication()).writeShelters();
+
 
     }
 }
