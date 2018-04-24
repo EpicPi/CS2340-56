@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 //            ((MyApp)getApplication()).writeShelters();
 //            ((MyApp)getApplication()).writePpl();
 //        }
+        ((MyApp)getApplication()).writeLog("App opened");
     }
 
     /**

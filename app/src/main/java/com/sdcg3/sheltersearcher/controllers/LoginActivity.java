@@ -33,13 +33,19 @@ public class LoginActivity extends AppCompatActivity {
         EditText pass = findViewById(R.id.editPass);
         Editable a = user.getText();
         Editable b = pass.getText();
-        if(((MyApp)getApplication()).isCorrect(a.toString(),
-                b.toString())){
+        String res = ((MyApp)getApplication()).isCorrect(a.toString(),               b.toString());
+        if(res.equals("yes")){
             Intent intent = new Intent(this, LandingPageActivity.class);
             startActivity(intent);
         }else{
-            Toast toast = Toast.makeText(this, "incorrect username/password combo",
-                    Toast.LENGTH_SHORT);
+            Toast toast;
+            if(res.equals("no")){
+                toast = Toast.makeText(this, "incorrect username/password combo",
+                        Toast.LENGTH_SHORT);
+            }else {
+                toast = Toast.makeText(this, "You are locked out please contact an admin",
+                        Toast.LENGTH_SHORT);
+            }
             toast.show();
         }
     }
