@@ -3,6 +3,7 @@ package com.sdcg3.sheltersearcher;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
@@ -14,15 +15,26 @@ import com.sdcg3.sheltersearcher.model.Shelter;
 import com.sdcg3.sheltersearcher.model.User;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -325,5 +337,17 @@ public class MyApp extends Application {
         shelter.removeAmount(-1 * num);
         writePpl();
         writeShelters();
+    }
+
+    public void writeLog(String str){
+        File root = Environment.getExternalStorageDirectory();
+//        File file = new File(root, "security.txt");
+//        root.mkdirs();
+        str = System.currentTimeMillis()+"\t"+str+"\n";
+        try {
+            Files.write(Paths.get(root+ "/security.txt"), str.getBytes(), StandardOpenOption.APPEND);
+        }catch (IOException e) {
+            Log.e("writelog","gah");
+        }
     }
 }
