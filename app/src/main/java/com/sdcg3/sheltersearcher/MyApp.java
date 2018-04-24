@@ -212,6 +212,7 @@ public class MyApp extends Application {
             }
             if (u.checkPass(pass)) {
                 current = u;
+                u.failedTries = 0;
                 return "yes";
             }
             u.failedTries++;
