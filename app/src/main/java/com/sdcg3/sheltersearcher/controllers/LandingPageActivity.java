@@ -17,7 +17,6 @@ public class LandingPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
-
     }
 
     /**
@@ -28,6 +27,7 @@ public class LandingPageActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         view.clearFocus();
         startActivity(intent);
+        ((MyApp)getApplication()).writeLog("Logged out");
 
     }
 

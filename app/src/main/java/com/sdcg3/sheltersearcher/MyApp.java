@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.CSVWriter;
+import com.sdcg3.sheltersearcher.Enums.GENDER;
 import com.sdcg3.sheltersearcher.model.Shelter;
 import com.sdcg3.sheltersearcher.model.User;
 
@@ -179,7 +180,7 @@ public class MyApp extends Application {
     public void addUser(String user, String pass) {
         current = new User(user, pass);
         users.add(current);
-
+        writeLog("Added user -- Username: " + user + " pass: " + pass);
         writePpl();
     }
 
@@ -193,6 +194,7 @@ public class MyApp extends Application {
         current.setShelter(shelter.getName());
         current.setNumber(amount);
         shelter.removeAmount(amount);
+        writeLog("Claim beds -- User: " + getCurrent().getName() + " shelter " + shelter.getName() + " amounr: " + amount);
         writePpl();
         writeShelters();
 
@@ -220,16 +222,19 @@ public class MyApp extends Application {
         if (!n.isEmpty()) {
             User u = n.get(0);
             if (u.failedTries >= 3) {
+                writeLog("Sign in attempt while locked out -- Username: " + user + " pass: " + pass);
                 return "fail";
             }
             if (u.checkPass(pass)) {
                 current = u;
                 u.failedTries = 0;
+                writeLog("Logged in  -- Username: " + user + " pass: " + pass);
                 return "yes";
             }
             u.failedTries++;
             writePpl();
         }
+        writeLog("Incorrect user/pass combo -- Username: " + user + " pass: " + pass);
         return "no";
     }
 
@@ -302,7 +307,7 @@ public class MyApp extends Application {
         } else {
             filtered.clear();
         }
-
+        writeLog("Filtering based on -- gender: " + gender + " age: " + age + " name: " + name);
         for (Shelter el :
                 shelters) {
             String restrictions = el.getRestrictions();
@@ -326,6 +331,7 @@ public class MyApp extends Application {
      */
     @SuppressWarnings("LawOfDemeter")
     public void releaseBeds() {
+
         User user = getCurrent();
         Shelter shelter = findByName(user.getShelter());
         if (shelter == null) {
@@ -334,20 +340,21 @@ public class MyApp extends Application {
             return;
         }
         int num = user.releaseBeds();
+        writeLog("Releasing beds -- User: " + user.getName() + " shelter: " + shelter.getName() + " amount: " + num);
         shelter.removeAmount(-1 * num);
         writePpl();
         writeShelters();
     }
 
-    public void writeLog(String str){
+    public void writeLog(String str) {
         File root = Environment.getExternalStorageDirectory();
 //        File file = new File(root, "security.txt");
 //        root.mkdirs();
-        str = System.currentTimeMillis()+"\t"+str+"\n";
+        str = System.currentTimeMillis() + "\t" + str + "\n";
         try {
-            Files.write(Paths.get(root+ "/security.txt"), str.getBytes(), StandardOpenOption.APPEND);
-        }catch (IOException e) {
-            Log.e("writelog","gah");
+            Files.write(Paths.get(root + "/security.txt"), str.getBytes(), StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            Log.e("writelog", "gah");
         }
     }
 }
