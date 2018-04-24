@@ -39,7 +39,6 @@ public class MyApp extends Application {
     private Shelter selected;
 
     /**
-     *
      * @return current user
      */
     public User getCurrent() {
@@ -58,7 +57,7 @@ public class MyApp extends Application {
         ) {
             List<String[]> records = csvReader.readAll();
             for (String[] record : records) {
-                users.add(new User(record[0], record[1], record[2], record[3]));
+                users.add(new User(record[0], record[1], record[2], record[3], record[4]));
             }
         } catch (Exception e) {
             Log.e("hi ppl", e.toString());
@@ -80,7 +79,7 @@ public class MyApp extends Application {
                         CSVWriter.DEFAULT_ESCAPE_CHARACTER,
                         CSVWriter.DEFAULT_LINE_END)
         ) {
-            String[] headerRecord = {"Name", "password", "shelter", "number"};
+            String[] headerRecord = {"Name", "password", "shelter", "number", "failedTries"};
             csvWriter.writeNext(headerRecord);
             for (User usr : users) {
                 csvWriter.writeNext(usr.getWritable());
@@ -161,6 +160,7 @@ public class MyApp extends Application {
 
     /**
      * adds user
+     *
      * @param user user to be added
      * @param pass pass of user
      */
@@ -173,7 +173,8 @@ public class MyApp extends Application {
 
     /**
      * claims spots at a shelter
-     * @param amount amount to be claimed
+     *
+     * @param amount  amount to be claimed
      * @param shelter shelter
      */
     public void claim(int amount, Shelter shelter) {
@@ -187,34 +188,41 @@ public class MyApp extends Application {
 
     /**
      * checks if user matches pass
+     *
      * @param user user to be checked
      * @param pass pass to be checked
      * @return true if match, false otherwise
      */
-    public boolean isCorrect(String user, String pass) {
+    public String isCorrect(String user, String pass) {
         if ((user == null) || (pass == null)) {
-            return false;
+            return "no";
         }
         List<User> n = new ArrayList<>();
         for (User u : users) {
             String nam = u.getName();
-            if(nam.equals(user)){
+            if (nam.equals(user)) {
                 n.add(u);
             }
         }
 
         if (!n.isEmpty()) {
             User u = n.get(0);
-            if(u.checkPass(pass)) {
-                current = u;
+            if (u.failedTries >= 3) {
+                return "fail";
             }
-            return true;
+            if (u.checkPass(pass)) {
+                current = u;
+                return "yes";
+            }
+            u.failedTries++;
+            writePpl();
         }
-        return false;
+        return "no";
     }
 
     /**
      * returns list of shelters
+     *
      * @return shelters
      */
     public List<Shelter> getFiltered() {
@@ -226,6 +234,7 @@ public class MyApp extends Application {
 
     /**
      * finds shelter
+     *
      * @param s shelter to be found
      * @return shelter object
      */
@@ -249,6 +258,7 @@ public class MyApp extends Application {
 
     /**
      * returns selected
+     *
      * @return Shelter
      */
     public Shelter getSelected() {
@@ -257,6 +267,7 @@ public class MyApp extends Application {
 
     /**
      * set selected
+     *
      * @param selected Shelter
      */
     public void setSelected(Shelter selected) {
@@ -265,16 +276,17 @@ public class MyApp extends Application {
 
     /**
      * filters by gender, age, and name
+     *
      * @param gender male or female
-     * @param age age
-     * @param name name
+     * @param age    age
+     * @param name   name
      */
     public void filter(CharSequence gender, CharSequence age, CharSequence name) {
         //capital letters don't exist cause we .toLowerCase everything
         final String other = "men".equals(gender) ? "women" : "LOLOLOLOL";
-        if(filtered == null){
+        if (filtered == null) {
             filtered = new ArrayList<>();
-        }else {
+        } else {
             filtered.clear();
         }
 
@@ -289,7 +301,7 @@ public class MyApp extends Application {
             String elName = el.getName();
             elName = elName.toLowerCase();
             boolean four = elName.contains(name);
-            if( one && two && three && four){
+            if (one && two && three && four) {
                 filtered.add(el);
             }
         }
@@ -300,7 +312,7 @@ public class MyApp extends Application {
      * Empties shelters' occupation.
      */
     @SuppressWarnings("LawOfDemeter")
-    public void releaseBeds(){
+    public void releaseBeds() {
         User user = getCurrent();
         Shelter shelter = findByName(user.getShelter());
         if (shelter == null) {
@@ -309,7 +321,7 @@ public class MyApp extends Application {
             return;
         }
         int num = user.releaseBeds();
-        shelter.removeAmount(-1*num);
+        shelter.removeAmount(-1 * num);
         writePpl();
         writeShelters();
     }

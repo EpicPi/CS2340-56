@@ -12,6 +12,7 @@ public class User {
     private final String pass;
     private String shelter;
     private int number;
+    public int failedTries;
 
     /**
      *
@@ -73,7 +74,7 @@ public class User {
      * @param shelter shelter
      * @param number number
      */
-    public User(String name, String pass, String shelter, String number){
+    public User(String name, String pass, String shelter, String number, String failed){
         this.name = name;
         this.pass = pass;
         this.shelter = shelter;
@@ -82,6 +83,11 @@ public class User {
         } else {
             this.number = Integer.parseInt(number);
         }
+        if(Objects.equals(failed, "") || (failed == null)) {
+            this.failedTries = 0;
+        } else {
+            this.failedTries = Integer.parseInt(failed);
+        }
     }
 
     /**
@@ -89,7 +95,7 @@ public class User {
      * @return Writable
      */
     public String[] getWritable(){
-        return new String[]{name,pass,shelter,number+""};
+        return new String[]{name,pass,shelter,number+"",failedTries+""};
     }
 
     /**
